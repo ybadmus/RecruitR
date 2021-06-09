@@ -15,7 +15,7 @@
     <% @positions.each do |position| %>
       <tr>
         <td><%= position.name %></td>
-        <td><%= (position.skills.map {|skill| skill.name}).join(', ') %></td>
+        <td><%= (position.skills.map {|skill| "##{skill.name}"}).join(', ') %></td>
         <td><%= link_to 'Show', position %></td>
         <td><%= link_to 'Edit', edit_position_path(position) %></td>
         <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>

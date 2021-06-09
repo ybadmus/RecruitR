@@ -3,6 +3,9 @@
 <p>
   <strong>Name:</strong>
   <%= @position.name %>
+  <br />
+  <strong>Skills:</strong>
+  <%= (@position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
 </p>
 
 <%= link_to 'Edit', edit_position_path(@position) %> |
