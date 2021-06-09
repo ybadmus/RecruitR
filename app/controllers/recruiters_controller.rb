@@ -13,15 +13,22 @@ class RecruitersController < ApplicationController
   # GET /recruiters/new
   def new
     @recruiter = Recruiter.new
+    @defaults = []
   end
 
   # GET /recruiters/1/edit
   def edit
+    @defaults = RecruiterSkill.where(recruiter_id: @recruiter.id).pluck(:skill_id)
   end
 
   # POST /recruiters or /recruiters.json
   def create
     @recruiter = Recruiter.new(recruiter_params)
+    params[:recruiter][:skill_id].each do |skill|
+      if !skill.empty?
+        @recruiter.recruiter_skills.build(:skill_id => skill)
+      end
+    end
 
     respond_to do |format|
       if @recruiter.save
@@ -36,6 +43,13 @@ class RecruitersController < ApplicationController
 
   # PATCH/PUT /recruiters/1 or /recruiters/1.json
   def update
+    params[:recruiter][:skill_id].each do |skill|
+      if !skill.empty?
+        @recruiter.recruiter_skills.build(:skill_id => skill)
+      end
+    end
+
+    RecruiterSkill.where(recruiter_id: @recruiter.id).delete_all
     respond_to do |format|
       if @recruiter.update(recruiter_params)
         format.html { redirect_to @recruiter, notice: "Recruiter was successfully updated." }
@@ -64,6 +78,6 @@ class RecruitersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recruiter_params
-      params.require(:recruiter).permit(:name, :email, :position)
+      params.require(:recruiter).permit(:name, :email, :position, :skill_id)
     end
 end

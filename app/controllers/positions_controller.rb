@@ -23,8 +23,8 @@ class PositionsController < ApplicationController
   end
 
   # POST /positions or /positions.json
-  def create
-    @position = Position.new(name: params[:position][:name])
+  def create  
+    @position = Position.new(position_params)
     params[:position][:skill_id].each do |skill|
       if !skill.empty?
         @position.position_skills.build(:skill_id => skill)
@@ -52,7 +52,7 @@ class PositionsController < ApplicationController
 
     PositionSkill.where(position_id: @position.id).delete_all
     respond_to do |format|
-      if @position.update(name: params[:position][:name])
+      if @position.update(position_params)
         format.html { redirect_to @position, notice: "Position was successfully updated." }
         format.json { render :show, status: :ok, location: @position }
       else

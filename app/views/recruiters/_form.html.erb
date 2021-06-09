@@ -26,6 +26,13 @@
     <%= form.text_field :position %>
   </div>
 
+  <div class="field">
+    <%= form.label 'Assign skills' %>
+    <%= form.collection_check_boxes(:skill_id, Skill.all(), :id, :name,) do |b| %>
+      <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
