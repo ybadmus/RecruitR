@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @candidate.fname %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @candidate.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @candidate.email %>
+</p>
+
+<p>
+  <strong>Angelist:</strong>
+  <%= @candidate.angelist %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @candidate.linkedin %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @candidate.position.name %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= (@candidate.position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
+</p>
+
+<p>
+  <strong>Suggested recruiters with the matching skills:</strong>
+  <%#= form_with do |form| %>
+    <%#= form.collection_check_boxes(:id, Skill.all(), :id, :name,) do |b| %>
+      <%#= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
+    <%# end %>
+  <%# end %>
+</p>
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
+<%= link_to 'Back', candidates_path %>

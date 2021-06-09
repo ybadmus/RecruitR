@@ -1,0 +1,47 @@
+<%= form_with(model: candidate) do |form| %>
+  <% if candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+        <% candidate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label 'first name' %>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'last name' %>
+    <%= form.text_field :lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :angelist %>
+    <%= form.text_field :angelist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :linkedin %>
+    <%= form.text_field :linkedin %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'position' %>
+    <%= form.select :position_id,  @positions %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

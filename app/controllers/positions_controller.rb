@@ -8,6 +8,7 @@ class PositionsController < ApplicationController
 
   # GET /positions/1 or /positions/1.json
   def show
+    @candidates = @position.candidates
   end
 
   # GET /positions/new
@@ -24,7 +25,7 @@ class PositionsController < ApplicationController
   # POST /positions or /positions.json
   def create
     @position = Position.new(name: params[:position][:name])
-    params[:position][:id].each do |skill|
+    params[:position][:skill_id].each do |skill|
       if !skill.empty?
         @position.position_skills.build(:skill_id => skill)
       end
@@ -43,15 +44,13 @@ class PositionsController < ApplicationController
 
   # PATCH/PUT /positions/1 or /positions/1.json
   def update
-
-    params[:position][:id].each do |skill|
+    params[:position][:skill_id].each do |skill|
       if !skill.empty?
         @position.position_skills.build(:skill_id => skill)
       end
     end
 
     PositionSkill.where(position_id: @position.id).delete_all
-
     respond_to do |format|
       if @position.update(name: params[:position][:name])
         format.html { redirect_to @position, notice: "Position was successfully updated." }
@@ -80,6 +79,6 @@ class PositionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def position_params
-      params.require(:position).permit(:name, :id[])
+      params.require(:position).permit(:name, :skill_id)
     end
 end
