@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name %> <br>
+    <%= form.label 'Assign skills' %>
+    <%= form.collection_check_boxes(:id, Skill.all(), :id, :name,) do |b| %>
+      <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
+    <% end %>
   </div>
 
   <div class="actions">

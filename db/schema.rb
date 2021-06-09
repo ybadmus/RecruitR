@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_011904) do
   enable_extension "plpgsql"
 
   create_table "position_skills", force: :cascade do |t|
-    t.integer "skillId"
-    t.integer "positionId"
+    t.integer "skill_id"
+    t.integer "position_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
