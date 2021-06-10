@@ -49,11 +49,11 @@ class PositionsController < ApplicationController
         @position.position_skills.build(:skill_id => skill)
       end
     end
-
+    #perform check if there array has really changed before submitting
     PositionSkill.where(position_id: @position.id).delete_all
     respond_to do |format|
       if @position.update(position_params)
-        format.html { redirect_to @position, notice: "Position was successfully updated." }
+        format.html { redirect_to positions_path, notice: "Position was successfully updated." }
         format.json { render :show, status: :ok, location: @position }
       else
         format.html { render :edit, status: :unprocessable_entity }

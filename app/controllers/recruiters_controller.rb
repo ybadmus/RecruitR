@@ -18,21 +18,21 @@ class RecruitersController < ApplicationController
 
   # GET /recruiters/1/edit
   def edit
-    @defaults = RecruiterSkill.where(recruiter_id: @recruiter.id).pluck(:skill_id)
+    @defaults = RecruiterPosition.where(recruiter_id: @recruiter.id).pluck(:position_id)
   end
 
   # POST /recruiters or /recruiters.json
   def create
     @recruiter = Recruiter.new(recruiter_params)
-    params[:recruiter][:skill_id].each do |skill|
-      if !skill.empty?
-        @recruiter.recruiter_skills.build(:skill_id => skill)
+    params[:recruiter][:position_id].each do |position|
+      if !position.empty?
+        @recruiter.recruiter_positions.build(:position_id => position)
       end
     end
 
     respond_to do |format|
       if @recruiter.save
-        format.html { redirect_to @recruiter, notice: "Recruiter was successfully created." }
+        format.html { redirect_to recruiters_path, notice: "Recruiter was successfully created." }
         format.json { render :show, status: :created, location: @recruiter }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,16 +43,16 @@ class RecruitersController < ApplicationController
 
   # PATCH/PUT /recruiters/1 or /recruiters/1.json
   def update
-    params[:recruiter][:skill_id].each do |skill|
-      if !skill.empty?
-        @recruiter.recruiter_skills.build(:skill_id => skill)
+    params[:recruiter][:position_id].each do |position|
+      if !position.empty?
+        @recruiter.recruiter_positions.build(:position_id => position)
       end
     end
 
-    RecruiterSkill.where(recruiter_id: @recruiter.id).delete_all
+    RecruiterPosition.where(recruiter_id: @recruiter.id).delete_all
     respond_to do |format|
       if @recruiter.update(recruiter_params)
-        format.html { redirect_to @recruiter, notice: "Recruiter was successfully updated." }
+        format.html { redirect_to recruiters_path, notice: "Recruiter was successfully updated." }
         format.json { render :show, status: :ok, location: @recruiter }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -78,6 +78,6 @@ class RecruitersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recruiter_params
-      params.require(:recruiter).permit(:name, :email, :position, :skill_id)
+      params.require(:recruiter).permit(:name, :email, :position, :position_id)
     end
 end

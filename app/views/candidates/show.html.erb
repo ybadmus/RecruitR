@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Matching</h1>
+<hr />
+
 <p>
   <strong>First name:</strong>
   <%= @candidate.fname %>
@@ -35,14 +38,23 @@
   <%= (@candidate.position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
 </p>
 
+<hr />
+
 <p>
   <strong>Suggested recruiters with the matching skills:</strong>
-  <%#= form_with do |form| %>
-    <%#= form.collection_check_boxes(:id, Skill.all(), :id, :name,) do |b| %>
-      <%#= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
-    <%# end %>
-  <%# end %>
+  <%= form_with do |form| %>
+    <%= form.collection_check_boxes(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
+      <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
+    <% end %>
+    <br />
+    <%= form.text_field :datetimepicker, class: "datetimepicker" %>
+    <br /><br />
+    <div class="actions">
+      <%= form.submit %>
+  </div>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
-<%= link_to 'Back', candidates_path %>
+<%= javascript_include_tag 'jquery'%>
+<%= javascript_include_tag 'jquery.datetimepicker.full.min'%>
+<%= javascript_include_tag 'datepicker'%>

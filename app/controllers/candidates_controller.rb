@@ -8,6 +8,7 @@ class CandidatesController < ApplicationController
 
   # GET /candidates/1 or /candidates/1.json
   def show
+    @defaults = []
   end
 
   # GET /candidates/new

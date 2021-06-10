@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_151845) do
+ActiveRecord::Schema.define(version: 2021_06_10_124108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_151845) do
     t.integer "position_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "matched"
   end
 
   create_table "position_skills", force: :cascade do |t|
@@ -39,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_151845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recruiter_skills", force: :cascade do |t|
-    t.integer "skill_id"
+  create_table "recruiter_positions", force: :cascade do |t|
+    t.integer "position_id"
     t.integer "recruiter_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

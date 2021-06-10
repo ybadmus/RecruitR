@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Applicants</h1>
+<hr />
+
 <p>
   <strong>Name:</strong>
   <%= @position.name %>
@@ -7,10 +10,6 @@
   <strong>Skills:</strong>
   <%= (@position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
 </p>
-
-<hr />
-
-<h4>Applicants</h4>
 
 <table>
   <thead>
@@ -25,14 +24,7 @@
       <tr>
         <td><%= "#{candidate.fname} #{candidate.lname}" %></td>
         <td><%= link_to 'Show', candidate %></td>
-        <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<hr />
-
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', positions_path %>

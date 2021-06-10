@@ -11,14 +11,9 @@
 </p>
 
 <p>
-  <strong>Position:</strong>
-  <%= @recruiter.position %>
-</p>
-
-<p>
-  <strong>Skills:</strong>
-  <%= (@recruiter.skills.map {|skill| "##{skill.name}"}).join(', ') %>
+  <strong>Assigned positions:</strong>
+  <%= (@recruiter.positions.map {|position| "#{position.name}"}).join(', ') %>
 </p>
 
 <%= link_to 'Edit', edit_recruiter_path(@recruiter) %> |
-<%= link_to 'Back', recruiters_path %>
+<%= link_to 'Destroy', @recruiter, method: :delete, data: { confirm: 'Are you sure?' } %>
