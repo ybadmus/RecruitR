@@ -11,8 +11,21 @@
 </p>
 
 <p>
-  <strong>Assigned positions:</strong>
-  <%= (@recruiter.positions.map {|position| "#{position.name}"}).join(', ') %>
+  <table>
+    <thead>
+      <tr>
+        <th>Assigned positions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recruiter.positions.each do |position| %>
+        <tr>
+          <td><%= position.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
 </p>
 
 <%= link_to 'Edit', edit_recruiter_path(@recruiter) %> |

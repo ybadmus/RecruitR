@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_131952) do
+ActiveRecord::Schema.define(version: 2021_06_09_151845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_131952) do
     t.string "angelist"
     t.string "linkedin"
     t.integer "position_id"
+    t.boolean "matched", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "matched"
   end
 
   create_table "position_skills", force: :cascade do |t|

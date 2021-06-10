@@ -7,6 +7,7 @@ class CreateCandidates < ActiveRecord::Migration[6.1]
       t.string :angelist
       t.string :linkedin
       t.integer :position_id
+      t.boolean :matched, :default => false
 
       t.timestamps
     end

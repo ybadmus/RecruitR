@@ -46,12 +46,14 @@
     <%= form.collection_check_boxes(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
       <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
     <% end %>
+
     <br />
     <%= form.text_field :datetimepicker, class: "datetimepicker" %>
+
     <br /><br />
     <div class="actions">
-      <%= form.submit %>
-  </div>
+      <%= form.submit 'Match the applicant' %>
+    </div>
   <% end %>
 </p>
 
