@@ -20952,3 +20952,2128 @@ Migrating to AddMatchedToCandidates (20210610124108)
   [1m[36mActiveRecord::InternalMetadata Load (17.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(766331795018624310)[0m
   [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 12:42:47 +0000
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (1.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (2.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (3.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (2.5ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 105.0ms | Allocations: 24119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 230.9ms | Allocations: 29665)
+Completed 200 OK in 260ms (Views: 231.1ms | ActiveRecord: 10.9ms | Allocations: 35681)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:43:46 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (4.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 45.7ms | Allocations: 1375)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 162.9ms | Allocations: 7098)
+Completed 200 OK in 201ms (Views: 184.6ms | ActiveRecord: 4.1ms | Allocations: 8263)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 12:43:52 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 9.2ms | Allocations: 3384)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 3687)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 93.7ms | Allocations: 9252)
+Completed 200 OK in 100ms (Views: 95.9ms | ActiveRecord: 0.9ms | Allocations: 9777)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 12:47:52 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (1.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 31.5ms | Allocations: 7778)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 35.8ms | Allocations: 8085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 114.0ms | Allocations: 13825)
+Completed 200 OK in 168ms (Views: 116.5ms | ActiveRecord: 36.3ms | Allocations: 19396)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:48:02 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 161.9ms | Allocations: 6888)
+Completed 200 OK in 167ms (Views: 163.5ms | ActiveRecord: 0.9ms | Allocations: 7430)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:48:40 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.7ms | Allocations: 3378)
+
+
+  
+NameError (uninitialized constant RecruitersController::RecruiterSkill):
+  
+app/controllers/recruiters_controller.rb:21:in `edit'
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:50:10 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 23.1ms | Allocations: 7379)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 24.7ms | Allocations: 7561)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.0ms | Allocations: 13099)
+Completed 200 OK in 118ms (Views: 71.2ms | ActiveRecord: 21.0ms | Allocations: 20368)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:50:17 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "skill_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (1.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 1.3ms | Allocations: 3546)
+
+
+  
+NoMethodError (undefined method `recruiter_skills' for #<Recruiter:0x00000000096472c0>
+Did you mean?  recruiter_positions):
+  
+app/controllers/recruiters_controller.rb:48:in `block in update'
+app/controllers/recruiters_controller.rb:46:in `each'
+app/controllers/recruiters_controller.rb:46:in `update'
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:51:10 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "skill_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 6.9ms | Allocations: 6098)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/recruiters_controller.rb:46:in `update'
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:52:15 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "skill_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (1.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 9.4ms | Allocations: 6118)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/recruiters_controller.rb:46:in `update'
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:52:18 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 24.2ms | Allocations: 7856)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 27.5ms | Allocations: 8164)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.8ms | Allocations: 13919)
+Completed 200 OK in 102ms (Views: 81.2ms | ActiveRecord: 8.9ms | Allocations: 17275)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:52:20 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 11.0ms | Allocations: 2769)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2862)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 110.4ms | Allocations: 8409)
+Completed 200 OK in 161ms (Views: 150.1ms | ActiveRecord: 3.1ms | Allocations: 10101)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:52:24 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (1.2ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (120.9ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:52:25.010817"], ["updated_at", "2021-06-10 12:52:25.010817"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters/2
+Completed 302 Found in 175ms (ActiveRecord: 132.5ms | Allocations: 9579)
+
+
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:52:25 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 82.8ms | Allocations: 3278)
+  Rendered layout layouts/application.html.erb (Duration: 85.2ms | Allocations: 3342)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 1.3ms | Allocations: 4540)
+
+
+  
+ActionView::Template::Error (undefined method `skills' for #<Recruiter:0x000000000accae48>):
+    17: 
+    18: <p>
+    19:   <strong>Assigned positions:</strong>
+    20:   <%= (@recruiter.skills.map {|skill| "##{skill.name}"}).join(', ') %>
+    21: </p>
+    22: 
+    23: <%= link_to 'Edit', edit_recruiter_path(@recruiter) %> |
+  
+app/views/recruiters/show.html.erb:20
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:53:05 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (2.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (2.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 18.7ms | Allocations: 2724)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 113.8ms | Allocations: 8382)
+Completed 200 OK in 146ms (Views: 127.9ms | ActiveRecord: 5.0ms | Allocations: 10194)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:53:11 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1319)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 6883)
+Completed 200 OK in 86ms (Views: 80.2ms | ActiveRecord: 1.7ms | Allocations: 7406)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:53:15 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 8.9ms | Allocations: 3184)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3495)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 65.8ms | Allocations: 9043)
+Completed 200 OK in 78ms (Views: 66.9ms | ActiveRecord: 2.6ms | Allocations: 10865)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:53:17 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26", "31"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (1.5ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (40.5ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:53:17.977570"], ["updated_at", "2021-06-10 12:53:17.977570"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (4.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 31], ["recruiter_id", 2], ["created_at", "2021-06-10 12:53:18.027812"], ["updated_at", "2021-06-10 12:53:18.027812"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters/2
+Completed 302 Found in 105ms (ActiveRecord: 55.8ms | Allocations: 8203)
+
+
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:53:18 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 59.0ms | Allocations: 6687)
+Completed 200 OK in 67ms (Views: 59.2ms | ActiveRecord: 2.9ms | Allocations: 7783)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:53:21 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 6.9ms | Allocations: 2758)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2851)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 8404)
+Completed 200 OK in 88ms (Views: 77.5ms | ActiveRecord: 2.9ms | Allocations: 10100)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:53:25 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 6639)
+Completed 200 OK in 54ms (Views: 52.7ms | ActiveRecord: 0.8ms | Allocations: 7032)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:53:31 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 8.1ms | Allocations: 2772)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2865)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.6ms | Allocations: 8413)
+Completed 200 OK in 72ms (Views: 62.4ms | ActiveRecord: 3.1ms | Allocations: 10109)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:54:31 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 22.0ms | Allocations: 7388)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 22.7ms | Allocations: 7481)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.7ms | Allocations: 13019)
+Completed 200 OK in 114ms (Views: 78.2ms | ActiveRecord: 16.2ms | Allocations: 20090)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:54:33 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26", "31"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (2.4ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (2.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (2.0ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:33.897532"], ["updated_at", "2021-06-10 12:54:33.897532"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.9ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 31], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:33.905025"], ["updated_at", "2021-06-10 12:54:33.905025"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 65ms (ActiveRecord: 16.8ms | Allocations: 11852)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:54:33 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 119.2ms | Allocations: 6641)
+Completed 200 OK in 123ms (Views: 121.3ms | ActiveRecord: 1.0ms | Allocations: 7039)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:54:38 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 5.9ms | Allocations: 2765)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2858)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.1ms | Allocations: 8415)
+Completed 200 OK in 78ms (Views: 69.4ms | ActiveRecord: 2.5ms | Allocations: 10111)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:54:40 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26", "29", "31"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (1.5ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (3.2ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.3ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:40.938214"], ["updated_at", "2021-06-10 12:54:40.938214"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 29], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:40.944507"], ["updated_at", "2021-06-10 12:54:40.944507"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.3ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 31], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:40.950907"], ["updated_at", "2021-06-10 12:54:40.950907"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (51.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 110ms (ActiveRecord: 67.5ms | Allocations: 10566)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:54:41 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.2ms | Allocations: 6633)
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 1.7ms | Allocations: 7031)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:54:43 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 7.0ms | Allocations: 2759)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2852)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.1ms | Allocations: 9135)
+Completed 200 OK in 76ms (Views: 66.3ms | ActiveRecord: 2.8ms | Allocations: 10832)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:54:47 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (2.0ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.1ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:47.162310"], ["updated_at", "2021-06-10 12:54:47.162310"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 27ms (ActiveRecord: 7.9ms | Allocations: 5801)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:54:47 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 6644)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.8ms | Allocations: 7042)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:54:49 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 10.7ms | Allocations: 2771)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.5ms | Allocations: 8411)
+Completed 200 OK in 91ms (Views: 80.1ms | ActiveRecord: 2.9ms | Allocations: 10106)
+
+
+Started PATCH "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:54:52 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Lead frontend developer", "position_id"=>["", "26"]}, "commit"=>"Update Recruiter", "id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (4.8ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 2], ["created_at", "2021-06-10 12:54:52.161955"], ["updated_at", "2021-06-10 12:54:52.161955"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 41ms (ActiveRecord: 18.6ms | Allocations: 5799)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:54:52 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.2ms | Allocations: 6635)
+Completed 200 OK in 82ms (Views: 80.4ms | ActiveRecord: 1.0ms | Allocations: 7033)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:54:54 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 11.1ms | Allocations: 2765)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 12.3ms | Allocations: 2859)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.4ms | Allocations: 8495)
+Completed 200 OK in 84ms (Views: 73.7ms | ActiveRecord: 3.1ms | Allocations: 10190)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 12:55:02 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 6.6ms | Allocations: 2756)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2849)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | Allocations: 8407)
+Completed 200 OK in 70ms (Views: 60.6ms | ActiveRecord: 2.7ms | Allocations: 10101)
+
+
+Started PATCH "/recruiters/3" for 127.0.0.1 at 2021-06-10 12:55:12 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Twum Essin", "email"=>"twum_ess@gmail.com", "position"=>"Lead backend developer", "position_id"=>["", "29"]}, "commit"=>"Update Recruiter", "id"=>"3"}
+  [1m[36mRecruiter Load (2.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (3.2ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (3.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (3.4ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 29], ["recruiter_id", 3], ["created_at", "2021-06-10 12:55:12.730353"], ["updated_at", "2021-06-10 12:55:12.730353"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 84ms (ActiveRecord: 20.9ms | Allocations: 5811)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:55:12 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.3ms | Allocations: 6633)
+Completed 200 OK in 80ms (Views: 77.9ms | ActiveRecord: 1.2ms | Allocations: 7031)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 12:55:15 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 6.1ms | Allocations: 2764)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2857)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.7ms | Allocations: 8415)
+Completed 200 OK in 70ms (Views: 62.1ms | ActiveRecord: 2.4ms | Allocations: 10110)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:55:41 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 4345)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.1ms | Allocations: 10086)
+Completed 200 OK in 92ms (Views: 78.5ms | ActiveRecord: 7.7ms | Allocations: 12442)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:55:55 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 18.5ms | Allocations: 7807)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 21.4ms | Allocations: 8118)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.0ms | Allocations: 13677)
+Completed 200 OK in 84ms (Views: 65.0ms | ActiveRecord: 9.0ms | Allocations: 16545)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:56:37 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1386)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | Allocations: 7148)
+Completed 200 OK in 97ms (Views: 90.2ms | ActiveRecord: 1.7ms | Allocations: 8257)
+
+
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:56:39 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3677)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.0ms | Allocations: 9131)
+Completed 200 OK in 91ms (Views: 79.7ms | ActiveRecord: 2.9ms | Allocations: 10351)
+
+
+Started GET "/recruiters/2/edit" for 127.0.0.1 at 2021-06-10 12:56:41 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 7.5ms | Allocations: 3177)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3488)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.1ms | Allocations: 9046)
+Completed 200 OK in 86ms (Views: 75.2ms | ActiveRecord: 2.5ms | Allocations: 10868)
+
+
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:56:47 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.3ms | Allocations: 6660)
+Completed 200 OK in 55ms (Views: 49.6ms | ActiveRecord: 1.7ms | Allocations: 7751)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:58:41 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1231)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 6994)
+Completed 200 OK in 125ms (Views: 113.4ms | ActiveRecord: 1.7ms | Allocations: 8103)
+
+
+Started GET "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:58:44 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 2]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1348)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.5ms | Allocations: 6910)
+Completed 200 OK in 81ms (Views: 71.4ms | ActiveRecord: 2.3ms | Allocations: 8130)
+
+
+Started DELETE "/recruiters/2" for 127.0.0.1 at 2021-06-10 12:58:49 +0000
+Processing by RecruitersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+  [1m[36mRecruiter Destroy (1.2ms)[0m  [1m[31mDELETE FROM "recruiters" WHERE "recruiters"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 35ms (ActiveRecord: 4.4ms | Allocations: 2781)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:58:49 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 953)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.6ms | Allocations: 6519)
+Completed 200 OK in 70ms (Views: 67.7ms | ActiveRecord: 1.1ms | Allocations: 6918)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 12:58:52 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1131)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 6679)
+Completed 200 OK in 56ms (Views: 50.9ms | ActiveRecord: 1.7ms | Allocations: 7769)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 12:58:58 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 7.1ms | Allocations: 3184)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 18.9ms | Allocations: 3496)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.1ms | Allocations: 9055)
+Completed 200 OK in 75ms (Views: 64.4ms | ActiveRecord: 2.5ms | Allocations: 10876)
+
+
+Started PATCH "/recruiters/3" for 127.0.0.1 at 2021-06-10 12:59:00 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Twum Essin", "email"=>"twum_ess@gmail.com", "position"=>"Lead backend developer", "position_id"=>["", "26", "29"]}, "commit"=>"Update Recruiter", "id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (5.3ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (2.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.7ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 3], ["created_at", "2021-06-10 12:59:01.049763"], ["updated_at", "2021-06-10 12:59:01.049763"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.3ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 29], ["recruiter_id", 3], ["created_at", "2021-06-10 12:59:01.055883"], ["updated_at", "2021-06-10 12:59:01.055883"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 61ms (ActiveRecord: 20.5ms | Allocations: 10953)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:59:01 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 956)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.0ms | Allocations: 6522)
+Completed 200 OK in 80ms (Views: 78.6ms | ActiveRecord: 0.9ms | Allocations: 6921)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-10 12:59:12 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 136.5ms | Allocations: 24024)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 221.7ms | Allocations: 29496)
+Completed 200 OK in 233ms (Views: 183.9ms | ActiveRecord: 44.7ms | Allocations: 30583)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 12:59:14 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (0.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (2.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (3.2ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 224.6ms | Allocations: 6898)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 331.4ms | Allocations: 12363)
+Completed 200 OK in 342ms (Views: 319.6ms | ActiveRecord: 15.8ms | Allocations: 13697)
+
+
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 12:59:17 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 21.7ms | Allocations: 8980)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.8ms | Allocations: 14324)
+Completed 200 OK in 75ms (Views: 64.9ms | ActiveRecord: 3.8ms | Allocations: 16076)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 12:59:50 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 958)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.9ms | Allocations: 6518)
+Completed 200 OK in 65ms (Views: 62.5ms | ActiveRecord: 1.1ms | Allocations: 6909)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 12:59:53 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1157)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 6716)
+Completed 200 OK in 90ms (Views: 83.0ms | ActiveRecord: 2.6ms | Allocations: 7806)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 13:00:04 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (2.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 9.8ms | Allocations: 2777)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2870)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.1ms | Allocations: 8501)
+Completed 200 OK in 84ms (Views: 73.3ms | ActiveRecord: 3.8ms | Allocations: 10198)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:00:34 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (1.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 6704)
+Completed 200 OK in 68ms (Views: 61.8ms | ActiveRecord: 2.0ms | Allocations: 7794)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 13:00:37 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (1.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 11.3ms | Allocations: 2936)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 86.0ms | Allocations: 8683)
+Completed 200 OK in 92ms (Views: 87.4ms | ActiveRecord: 1.5ms | Allocations: 9207)
+
+
+Started POST "/recruiters" for 127.0.0.1 at 2021-06-10 13:00:59 +0000
+Processing by RecruitersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Yusif Badmus", "email"=>"yusif.badmus@gmail.com", "position"=>"Full stack developer", "position_id"=>["", "26", "29"]}, "commit"=>"Create Recruiter"}
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (5.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (2.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiter Create (4.0ms)[0m  [1m[32mINSERT INTO "recruiters" ("name", "email", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Yusif Badmus"], ["email", "yusif.badmus@gmail.com"], ["position", "Full stack developer"], ["created_at", "2021-06-10 13:00:59.258212"], ["updated_at", "2021-06-10 13:00:59.258212"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (3.4ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 4], ["created_at", "2021-06-10 13:00:59.271611"], ["updated_at", "2021-06-10 13:00:59.271611"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (3.6ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 29], ["recruiter_id", 4], ["created_at", "2021-06-10 13:00:59.284817"], ["updated_at", "2021-06-10 13:00:59.284817"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 234ms (ActiveRecord: 25.8ms | Allocations: 10247)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:00:59 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.5ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1013)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 111.0ms | Allocations: 6579)
+Completed 200 OK in 116ms (Views: 112.7ms | ActiveRecord: 1.5ms | Allocations: 6978)
+
+
+Started GET "/recruiters/4" for 127.0.0.1 at 2021-06-10 13:01:07 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRecruiter Load (2.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (2.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 4]]
+  ↳ app/views/recruiters/show.html.erb:20:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1157)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.1ms | Allocations: 6708)
+Completed 200 OK in 84ms (Views: 75.2ms | ActiveRecord: 4.2ms | Allocations: 7798)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:02:45 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1235)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.0ms | Allocations: 6991)
+Completed 200 OK in 111ms (Views: 103.2ms | ActiveRecord: 1.2ms | Allocations: 8099)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:02:47 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 59.7ms | Allocations: 6912)
+Completed 200 OK in 68ms (Views: 60.4ms | ActiveRecord: 1.9ms | Allocations: 8132)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:03:50 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.1ms | Allocations: 7094)
+Completed 200 OK in 113ms (Views: 102.6ms | ActiveRecord: 2.3ms | Allocations: 8894)
+
+
+Started GET "/positions" for 127.0.0.1 at 2021-06-10 13:04:01 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 76.7ms | Allocations: 14926)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 149.2ms | Allocations: 20495)
+Completed 200 OK in 165ms (Views: 140.0ms | ActiveRecord: 19.2ms | Allocations: 21531)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:04:14 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.1ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2228)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.0ms | Allocations: 7790)
+Completed 200 OK in 89ms (Views: 79.4ms | ActiveRecord: 3.0ms | Allocations: 9027)
+
+
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 13:04:22 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (0.9ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 27.6ms | Allocations: 9255)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.6ms | Allocations: 14598)
+Completed 200 OK in 94ms (Views: 83.0ms | ActiveRecord: 4.9ms | Allocations: 16196)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:04:38 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (0.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2002)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 59.5ms | Allocations: 7565)
+Completed 200 OK in 66ms (Views: 59.6ms | ActiveRecord: 2.6ms | Allocations: 8679)
+
+
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 13:04:39 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (1.2ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 8819)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 14171)
+Completed 200 OK in 76ms (Views: 66.5ms | ActiveRecord: 4.8ms | Allocations: 15275)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:05:00 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1235)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | Allocations: 6987)
+Completed 200 OK in 68ms (Views: 63.7ms | ActiveRecord: 1.7ms | Allocations: 8096)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:05:02 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.3ms | Allocations: 6901)
+Completed 200 OK in 89ms (Views: 80.6ms | ActiveRecord: 1.9ms | Allocations: 8121)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 13:05:06 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 7.9ms | Allocations: 3185)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3497)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.1ms | Allocations: 9056)
+Completed 200 OK in 80ms (Views: 67.9ms | ActiveRecord: 2.9ms | Allocations: 10880)
+
+
+Started PATCH "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:05:08 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Twum Essin", "email"=>"twum_ess@gmail.com", "position"=>"Lead backend developer", "position_id"=>["", "26", "29", "33"]}, "commit"=>"Update Recruiter", "id"=>"3"}
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (64.7ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (5.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (6.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (4.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (4.6ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 3], ["created_at", "2021-06-10 13:05:08.730812"], ["updated_at", "2021-06-10 13:05:08.730812"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (2.4ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 29], ["recruiter_id", 3], ["created_at", "2021-06-10 13:05:08.749539"], ["updated_at", "2021-06-10 13:05:08.749539"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (2.0ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 33], ["recruiter_id", 3], ["created_at", "2021-06-10 13:05:08.760768"], ["updated_at", "2021-06-10 13:05:08.760768"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 191ms (ActiveRecord: 98.6ms | Allocations: 10564)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:05:08 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (2.5ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1012)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 120.0ms | Allocations: 6575)
+Completed 200 OK in 125ms (Views: 120.1ms | ActiveRecord: 2.5ms | Allocations: 6974)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:05:11 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (3.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 21.4ms | Allocations: 1179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 164.2ms | Allocations: 6753)
+Completed 200 OK in 174ms (Views: 163.7ms | ActiveRecord: 3.9ms | Allocations: 7843)
+
+
+Started GET "/recruiters/3/edit" for 127.0.0.1 at 2021-06-10 13:05:17 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 6.5ms | Allocations: 2766)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2859)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 8417)
+Completed 200 OK in 65ms (Views: 56.4ms | ActiveRecord: 2.5ms | Allocations: 10114)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 13:05:23 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 8.0ms | Allocations: 2928)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.7ms | Allocations: 8675)
+Completed 200 OK in 76ms (Views: 70.9ms | ActiveRecord: 1.1ms | Allocations: 9199)
+
+
+Started POST "/recruiters" for 127.0.0.1 at 2021-06-10 13:05:48 +0000
+Processing by RecruitersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Joseph", "email"=>"Zurahana", "position"=>"Software Engineer", "position_id"=>["", "26", "27", "28"]}, "commit"=>"Create Recruiter"}
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiter Create (1.4ms)[0m  [1m[32mINSERT INTO "recruiters" ("name", "email", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Joseph"], ["email", "Zurahana"], ["position", "Software Engineer"], ["created_at", "2021-06-10 13:05:48.898649"], ["updated_at", "2021-06-10 13:05:48.898649"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (1.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 5], ["created_at", "2021-06-10 13:05:48.904049"], ["updated_at", "2021-06-10 13:05:48.904049"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (1.4ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 27], ["recruiter_id", 5], ["created_at", "2021-06-10 13:05:48.909649"], ["updated_at", "2021-06-10 13:05:48.909649"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (2.5ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 28], ["recruiter_id", 5], ["created_at", "2021-06-10 13:05:48.915325"], ["updated_at", "2021-06-10 13:05:48.915325"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 52ms (ActiveRecord: 13.5ms | Allocations: 10108)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:05:48 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (0.9ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1069)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.3ms | Allocations: 6629)
+Completed 200 OK in 64ms (Views: 61.8ms | ActiveRecord: 0.9ms | Allocations: 7028)
+
+
+Started GET "/recruiters/5" for 127.0.0.1 at 2021-06-10 13:05:52 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 5]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 6740)
+Completed 200 OK in 63ms (Views: 57.8ms | ActiveRecord: 1.6ms | Allocations: 7830)
+
+
+Started GET "/positions" for 127.0.0.1 at 2021-06-10 13:06:33 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 66.8ms | Allocations: 14929)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 136.6ms | Allocations: 20498)
+Completed 200 OK in 147ms (Views: 125.1ms | ActiveRecord: 17.5ms | Allocations: 21528)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:06:38 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (0.9ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 75.2ms | Allocations: 7778)
+Completed 200 OK in 84ms (Views: 75.2ms | ActiveRecord: 3.0ms | Allocations: 9015)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:06:50 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (0.6ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1995)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 85.3ms | Allocations: 7556)
+Completed 200 OK in 94ms (Views: 87.7ms | ActiveRecord: 2.5ms | Allocations: 8670)
+
+
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 13:06:51 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (0.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 23.6ms | Allocations: 10265)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 15608)
+Completed 200 OK in 108ms (Views: 96.9ms | ActiveRecord: 4.1ms | Allocations: 17206)
+
+
+Started GET "/candidates/5" for 127.0.0.1 at 2021-06-10 13:08:52 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCandidate Load (1.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.4ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" INNER JOIN "recruiter_positions" ON "recruiters"."id" = "recruiter_positions"."recruiter_id" WHERE "recruiter_positions"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 39.2ms | Allocations: 8325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 103.6ms | Allocations: 13873)
+Completed 200 OK in 123ms (Views: 110.1ms | ActiveRecord: 5.5ms | Allocations: 15692)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:08:56 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 14.3ms | Allocations: 2221)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 7772)
+Completed 200 OK in 111ms (Views: 99.3ms | ActiveRecord: 3.0ms | Allocations: 9380)
+
+
+Started GET "/positions" for 127.0.0.1 at 2021-06-10 13:08:59 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 66.9ms | Allocations: 14929)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 126.7ms | Allocations: 20497)
+Completed 200 OK in 133ms (Views: 110.3ms | ActiveRecord: 18.2ms | Allocations: 21165)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:09:04 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1286)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 6844)
+Completed 200 OK in 84ms (Views: 79.4ms | ActiveRecord: 1.2ms | Allocations: 7729)
+
+
+Started GET "/recruiters/3" for 127.0.0.1 at 2021-06-10 13:09:06 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 3]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.5ms | Allocations: 6935)
+Completed 200 OK in 78ms (Views: 70.1ms | ActiveRecord: 1.9ms | Allocations: 8149)
+
+
+Started GET "/recruiters/4" for 127.0.0.1 at 2021-06-10 13:09:12 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 4]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1154)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 6713)
+Completed 200 OK in 57ms (Views: 51.8ms | ActiveRecord: 1.6ms | Allocations: 7804)
+
+
+Started GET "/recruiters/5" for 127.0.0.1 at 2021-06-10 13:09:16 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRecruiter Load (0.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 5]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.5ms | Allocations: 6736)
+Completed 200 OK in 55ms (Views: 49.9ms | ActiveRecord: 1.5ms | Allocations: 7826)
+
+
+Started GET "/positions" for 127.0.0.1 at 2021-06-10 13:09:19 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (2.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (2.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (2.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 78.2ms | Allocations: 14664)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 143.9ms | Allocations: 20223)
+Completed 200 OK in 148ms (Views: 122.9ms | ActiveRecord: 22.9ms | Allocations: 20759)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-10 13:09:23 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (4.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 161.9ms | Allocations: 14654)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 266.4ms | Allocations: 20220)
+Completed 200 OK in 272ms (Views: 239.6ms | ActiveRecord: 29.2ms | Allocations: 20755)
+
+
+Started GET "/positions/31" for 127.0.0.1 at 2021-06-10 13:09:26 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mPosition Load (0.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1996)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 58.0ms | Allocations: 7554)
+Completed 200 OK in 64ms (Views: 57.8ms | ActiveRecord: 2.8ms | Allocations: 8667)
+
+
+Started GET "/positions/26" for 127.0.0.1 at 2021-06-10 13:09:34 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mPosition Load (1.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1911)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 7460)
+Completed 200 OK in 63ms (Views: 54.4ms | ActiveRecord: 3.5ms | Allocations: 8573)
+
+
+Started GET "/candidates/1" for 127.0.0.1 at 2021-06-10 13:09:35 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" INNER JOIN "recruiter_positions" ON "recruiters"."id" = "recruiter_positions"."recruiter_id" WHERE "recruiter_positions"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 25.2ms | Allocations: 10124)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.1ms | Allocations: 15476)
+Completed 200 OK in 87ms (Views: 79.3ms | ActiveRecord: 3.9ms | Allocations: 16580)
+
+
+Started GET "/candidates" for 127.0.0.1 at 2021-06-10 13:13:11 +0000
+Processing by CandidatesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/index.html.erb within layouts/application
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates"[0m
+  ↳ app/views/candidates/index.html.erb:20
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mPosition Load (2.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mCACHE Position Load (0.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  [1m[36mCACHE Position Load (0.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/views/candidates/index.html.erb:27
+  Rendered candidates/index.html.erb within layouts/application (Duration: 36.5ms | Allocations: 7195)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 90.7ms | Allocations: 12764)
+Completed 200 OK in 96ms (Views: 84.5ms | ActiveRecord: 7.8ms | Allocations: 13277)
+
+
+Started GET "/candidates/new" for 127.0.0.1 at 2021-06-10 13:13:14 +0000
+Processing by CandidatesController#new as HTML
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "positions"."name", "positions"."id" FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/controllers/candidates_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/new.html.erb within layouts/application
+  Rendered candidates/_form.html.erb (Duration: 12.6ms | Allocations: 1996)
+  Rendered candidates/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 2308)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.6ms | Allocations: 7864)
+Completed 200 OK in 73ms (Views: 66.1ms | ActiveRecord: 0.9ms | Allocations: 9132)
+
+
+Started POST "/candidates" for 127.0.0.1 at 2021-06-10 13:13:43 +0000
+Processing by CandidatesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "candidate"=>{"fname"=>"Joseph", "lname"=>"Amenuvor", "email"=>"joseph_amenu@gmail.com", "angelist"=>"@jamenu", "linkedin"=>"__amenuvor", "position_id"=>"26"}, "commit"=>"Create Candidate"}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/candidates_controller.rb:32:in `block in create'
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:32:in `block in create'
+  [1m[36mCandidate Create (43.1ms)[0m  [1m[32mINSERT INTO "candidates" ("fname", "lname", "email", "angelist", "linkedin", "position_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["fname", "Joseph"], ["lname", "Amenuvor"], ["email", "joseph_amenu@gmail.com"], ["angelist", "@jamenu"], ["linkedin", "__amenuvor"], ["position_id", 26], ["created_at", "2021-06-10 13:13:43.752873"], ["updated_at", "2021-06-10 13:13:43.752873"]]
+  ↳ app/controllers/candidates_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/candidates_controller.rb:32:in `block in create'
+Redirected to http://127.0.0.1:3000/candidates/8
+Completed 302 Found in 77ms (ActiveRecord: 49.2ms | Allocations: 3880)
+
+
+Started GET "/candidates/8" for 127.0.0.1 at 2021-06-10 13:13:43 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCandidate Load (0.9ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.5ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" INNER JOIN "recruiter_positions" ON "recruiters"."id" = "recruiter_positions"."recruiter_id" WHERE "recruiter_positions"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 30.6ms | Allocations: 10121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 139.2ms | Allocations: 15472)
+Completed 200 OK in 149ms (Views: 138.8ms | ActiveRecord: 4.8ms | Allocations: 16581)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-10 13:14:00 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (2.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (1.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 31]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (2.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 33]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 28]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 27]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 29]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 32]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 97.9ms | Allocations: 14663)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 214.0ms | Allocations: 20224)
+Completed 200 OK in 220ms (Views: 192.3ms | ActiveRecord: 24.7ms | Allocations: 20760)
+
+
+Started GET "/positions/26" for 127.0.0.1 at 2021-06-10 13:14:05 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/show.html.erb:11:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/positions/show.html.erb:23
+  Rendered positions/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1972)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.8ms | Allocations: 7530)
+Completed 200 OK in 70ms (Views: 62.7ms | ActiveRecord: 3.0ms | Allocations: 8643)
+
+
+Started GET "/candidates/8" for 127.0.0.1 at 2021-06-10 13:14:06 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (2.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" INNER JOIN "recruiter_positions" ON "recruiters"."id" = "recruiter_positions"."recruiter_id" WHERE "recruiter_positions"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 28.0ms | Allocations: 10111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.6ms | Allocations: 15453)
+Completed 200 OK in 100ms (Views: 90.6ms | ActiveRecord: 5.1ms | Allocations: 16556)
+
+
+Started GET "/candidates/1" for 127.0.0.1 at 2021-06-10 13:14:10 +0000
+Processing by CandidatesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCandidate Load (0.7ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/candidates_controller.rb:67:in `set_candidate'
+  Rendering layout layouts/application.html.erb
+  Rendering candidates/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/candidates/show.html.erb:33
+  [1m[36mSkill Load (1.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:38:in `map'
+  [1m[36mRecruiter Load (1.4ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" INNER JOIN "recruiter_positions" ON "recruiters"."id" = "recruiter_positions"."recruiter_id" WHERE "recruiter_positions"."position_id" = $1[0m  [["position_id", 26]]
+  ↳ app/views/candidates/show.html.erb:46
+  Rendered candidates/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 10112)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 91.3ms | Allocations: 15464)
+Completed 200 OK in 98ms (Views: 88.8ms | ActiveRecord: 4.7ms | Allocations: 16567)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:14:35 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.6ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1070)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | Allocations: 6641)
+Completed 200 OK in 67ms (Views: 63.8ms | ActiveRecord: 1.6ms | Allocations: 7032)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 13:14:38 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (1.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 10.0ms | Allocations: 3354)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3657)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 9212)
+Completed 200 OK in 70ms (Views: 65.1ms | ActiveRecord: 1.7ms | Allocations: 9730)
+
+
+Started POST "/recruiters" for 127.0.0.1 at 2021-06-10 13:15:02 +0000
+Processing by RecruitersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Mosua", "email"=>"Amedu", "position"=>"Lead", "position_id"=>["", "31"]}, "commit"=>"Create Recruiter"}
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mPosition Load (1.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiter Create (1.2ms)[0m  [1m[32mINSERT INTO "recruiters" ("name", "email", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mosua"], ["email", "Amedu"], ["position", "Lead"], ["created_at", "2021-06-10 13:15:02.627797"], ["updated_at", "2021-06-10 13:15:02.627797"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mRecruiterPosition Create (1.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 31], ["recruiter_id", 6], ["created_at", "2021-06-10 13:15:02.633350"], ["updated_at", "2021-06-10 13:15:02.633350"]]
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:34:in `block in create'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 28ms (ActiveRecord: 7.6ms | Allocations: 5450)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:15:02 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 89.0ms | Allocations: 6683)
+Completed 200 OK in 93ms (Views: 90.8ms | ActiveRecord: 1.0ms | Allocations: 7082)
+
+
+Started GET "/recruiters/6" for 127.0.0.1 at 2021-06-10 13:15:06 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 6]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 6689)
+Completed 200 OK in 68ms (Views: 61.8ms | ActiveRecord: 1.8ms | Allocations: 7779)
+
+
+Started GET "/recruiters/6/edit" for 127.0.0.1 at 2021-06-10 13:15:09 +0000
+Processing by RecruitersController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "recruiter_positions"."position_id" FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 6]]
+  ↳ app/controllers/recruiters_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/edit.html.erb within layouts/application
+  [1m[36mPosition Load (1.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 6.9ms | Allocations: 2772)
+  Rendered recruiters/edit.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2956)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.2ms | Allocations: 8514)
+Completed 200 OK in 84ms (Views: 73.4ms | ActiveRecord: 2.5ms | Allocations: 10335)
+
+
+Started PATCH "/recruiters/6" for 127.0.0.1 at 2021-06-10 13:15:12 +0000
+Processing by RecruitersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recruiter"=>{"name"=>"Mosua", "email"=>"Amedu", "position"=>"Lead", "position_id"=>["", "26", "31"]}, "commit"=>"Update Recruiter", "id"=>"6"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mRecruiterPosition Destroy (5.1ms)[0m  [1m[31mDELETE FROM "recruiter_positions" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 6]]
+  ↳ app/controllers/recruiters_controller.rb:52:in `update'
+[31mUnpermitted parameter: :position_id[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (2.2ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 26], ["recruiter_id", 6], ["created_at", "2021-06-10 13:15:12.918589"], ["updated_at", "2021-06-10 13:15:12.918589"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mRecruiterPosition Create (1.3ms)[0m  [1m[32mINSERT INTO "recruiter_positions" ("position_id", "recruiter_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["position_id", 31], ["recruiter_id", 6], ["created_at", "2021-06-10 13:15:12.925045"], ["updated_at", "2021-06-10 13:15:12.925045"]]
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:54:in `block in update'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 44ms (ActiveRecord: 14.3ms | Allocations: 8182)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:15:12 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 6681)
+Completed 200 OK in 80ms (Views: 77.7ms | ActiveRecord: 1.0ms | Allocations: 7080)
+
+
+Started GET "/recruiters/6" for 127.0.0.1 at 2021-06-10 13:15:15 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/show.html.erb within layouts/application
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" INNER JOIN "recruiter_positions" ON "positions"."id" = "recruiter_positions"."position_id" WHERE "recruiter_positions"."recruiter_id" = $1[0m  [["recruiter_id", 6]]
+  ↳ app/views/recruiters/show.html.erb:15:in `map'
+  Rendered recruiters/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.4ms | Allocations: 6716)
+Completed 200 OK in 62ms (Views: 56.1ms | ActiveRecord: 1.8ms | Allocations: 7806)
+
+
+Started DELETE "/recruiters/6" for 127.0.0.1 at 2021-06-10 13:15:18 +0000
+Processing by RecruitersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+  [1m[36mRecruiter Load (0.7ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+  [1m[36mRecruiter Destroy (1.2ms)[0m  [1m[31mDELETE FROM "recruiters" WHERE "recruiters"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recruiters_controller.rb:66:in `destroy'
+Redirected to http://127.0.0.1:3000/recruiters
+Completed 302 Found in 15ms (ActiveRecord: 4.0ms | Allocations: 2765)
+
+
+Started GET "/recruiters" for 127.0.0.1 at 2021-06-10 13:15:19 +0000
+Processing by RecruitersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/index.html.erb within layouts/application
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters"[0m
+  ↳ app/views/recruiters/index.html.erb:17
+  Rendered recruiters/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1064)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | Allocations: 6631)
+Completed 200 OK in 53ms (Views: 51.3ms | ActiveRecord: 1.2ms | Allocations: 7029)
+
+
+Started GET "/recruiters/new" for 127.0.0.1 at 2021-06-10 13:15:20 +0000
+Processing by RecruitersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recruiters/new.html.erb within layouts/application
+  [1m[36mPosition Load (1.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/recruiters/_form.html.erb:31
+  Rendered recruiters/_form.html.erb (Duration: 7.5ms | Allocations: 2935)
+  Rendered recruiters/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3028)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.8ms | Allocations: 8590)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 1.2ms | Allocations: 8988)
+
+
+Started GET "/recruiters/6" for 127.0.0.1 at 2021-06-10 13:15:22 +0000
+Processing by RecruitersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRecruiter Load (0.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.8ms | Allocations: 1239)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recruiter with 'id'=6):
+  
+app/controllers/recruiters_controller.rb:76:in `set_recruiter'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(766331795018624310)[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemovePositionFromRecruiter (20210610131952)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.5ms)[0m  [1m[35mALTER TABLE "recruiters" DROP COLUMN "position"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210610131952"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(766331795018624310)[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

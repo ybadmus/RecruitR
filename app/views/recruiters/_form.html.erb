@@ -22,11 +22,6 @@
   </div>
 
   <div class="field">
-    <%= form.label 'Role' %>
-    <%= form.text_field :position %>
-  </div>
-
-  <div class="field">
     <%= form.label 'Assign Position' %>
     <%= form.collection_check_boxes(:position_id, Position.all(), :id, :name,) do |b| %>
       <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>

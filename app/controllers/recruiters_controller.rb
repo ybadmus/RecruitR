@@ -78,6 +78,6 @@ class RecruitersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recruiter_params
-      params.require(:recruiter).permit(:name, :email, :position, :position_id)
+      params.require(:recruiter).permit(:name, :email, :position_id)
     end
 end
