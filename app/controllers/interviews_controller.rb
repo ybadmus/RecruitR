@@ -6,6 +6,7 @@ class InterviewsController < ApplicationController
   end
 
   def show
+    @score = Score.new
   end
 
   def create

@@ -1,0 +1,42 @@
+<%= form_with(model: score) do |form| %>
+  <% if score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
+
+      <ul>
+        <% score.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :experience %>
+    <%= form.range_field :experience, in: 1..20 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dynamism %>
+    <%= form.range_field :dynamism, in: 1..20 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interest %>
+    <%= form.range_field :interest, in: 1..20 %>
+  </div>
+
+  <div class="field">
+     <%= form.label :enthusiasm %>
+    <%= form.range_field :enthusiasm, in: 1..20 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technical_skill %>
+    <%= form.range_field :technical_skill, in: 1..20 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

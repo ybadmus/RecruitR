@@ -1,4 +1,66 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Interview</h1>
+
+<p>
+  <strong>Interview date:</strong>
+  <%= @interview.interview_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if(@interview.closed) %>
+    Closed
+  <% else %>
+    Opened
+  <% end %>
+</p>
+
 <hr />
+
+<h4>Candidate</h4>
+
+<p>
+  <strong>Name:</strong>
+  <%= "#{@interview.candidate.fname} #{@interview.candidate.lname}" %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @interview.candidate.email %>
+</p>
+
+<p>
+  <strong>Angelist:</strong>
+  <%= @interview.candidate.angelist %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @interview.candidate.linkedin %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @interview.candidate.position.name %>
+</p>
+
+<hr />
+
+<h4>Recruiter</h4>
+
+<p>
+  <strong>Name:</strong>
+  <%= @interview.recruiter.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @interview.recruiter.email %>
+</p>
+
+<hr />
+
+<h4>Record applicant scores</h4>
+
+<%= render 'form', score: @score %>

@@ -61,10 +61,8 @@
         <%= b.label { b.radio_button(checked: @defaults.include?(b.value)) + b.text } %>
       <% end %>
 
-      <br />
       <%= form.text_field :interview_date, class: "datetimepicker" %>
 
-      <br /><br />
       <div class="actions">
         <%= form.submit 'Match the applicant' %>
       </div>
