@@ -6,10 +6,8 @@ class CreateScores < ActiveRecord::Migration[6.1]
       t.integer :interest
       t.integer :enthusiasm
       t.integer :technical_skill
-      t.integer :interview_id
 
       t.timestamps
     end
-    add_foreign_key :scores, :interviews
   end
 end

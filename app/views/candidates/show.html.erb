@@ -34,28 +34,45 @@
 </p>
 
 <p>
+  <strong>Matched:</strong>
+  <%= @candidate.matched %>
+</p>
+
+<p>
   <strong>Skills:</strong>
-  <%= (@candidate.position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
+  <%= (@candidate.position.skills.map {|skill| "#{skill.name}"}).join(', ') %>
 </p>
 
 <hr />
 
-<p>
-  <strong>Suggested recruiters with the matching skills:</strong>
-  <%= form_with do |form| %>
-    <%= form.collection_check_boxes(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
-      <%= b.label { b.check_box(checked: @defaults.include?(b.value)) + b.text } %>
+<% if(@candidate.matched) %>
+  <p>
+    <strong>This candidate has already been matched</strong>
+
+  </p>
+<% else %>
+  <p>
+    <strong>Suggested recruiters with the matching skills:</strong>
+
+    <%= form_with(model: @interview, url: interviews_path) do |form| %>
+      <%= form.hidden_field :candidate_id, value: "#{@candidate.id}" %>
+      
+      <%= form.collection_radio_buttons(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
+        <%= b.label { b.radio_button(checked: @defaults.include?(b.value)) + b.text } %>
+      <% end %>
+
+      <br />
+      <%= form.text_field :interview_date, class: "datetimepicker" %>
+
+      <br /><br />
+      <div class="actions">
+        <%= form.submit 'Match the applicant' %>
+      </div>
     <% end %>
 
-    <br />
-    <%= form.text_field :datetimepicker, class: "datetimepicker" %>
+  </p>
+<% end %>
 
-    <br /><br />
-    <div class="actions">
-      <%= form.submit 'Match the applicant' %>
-    </div>
-  <% end %>
-</p>
 
 <%= javascript_include_tag 'jquery'%>
 <%= javascript_include_tag 'jquery.datetimepicker.full.min'%>

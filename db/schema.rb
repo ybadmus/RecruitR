@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_151845) do
+ActiveRecord::Schema.define(version: 2021_06_10_162542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2021_06_09_151845) do
     t.string "linkedin"
     t.integer "position_id"
     t.boolean "matched", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer "candidate_id"
+    t.integer "recruiter_id"
+    t.string "interview_date"
+    t.boolean "closed", default: false
+    t.integer "score_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,6 +64,16 @@ ActiveRecord::Schema.define(version: 2021_06_09_151845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.integer "experience"
+    t.integer "dynamism"
+    t.integer "interest"
+    t.integer "enthusiasm"
+    t.integer "technical_skill"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -61,4 +81,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_151845) do
   end
 
   add_foreign_key "candidates", "positions"
+  add_foreign_key "interviews", "candidates"
+  add_foreign_key "interviews", "recruiters"
+  add_foreign_key "interviews", "scores"
 end

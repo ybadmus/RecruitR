@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Applicants</h1>
-<hr />
+<h1><%= @position.name %></h1>
 
 <p>
-  <strong>Name:</strong>
-  <%= @position.name %>
-  <br />
   <strong>Skills:</strong>
-  <%= (@position.skills.map {|skill| "##{skill.name}"}).join(', ') %>
+  <%= (@position.skills.map {|skill| "#{skill.name}"}).join(', ') %>
 </p>
+
+<hr />
+
+<h4>Applicants</h4>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Email</th>
+      <th>Matched</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,6 +25,8 @@
     <% @candidates.each do |candidate| %>
       <tr>
         <td><%= "#{candidate.fname} #{candidate.lname}" %></td>
+        <td><%= candidate.email %></td>
+        <td><%= candidate.matched %></td>
         <td><%= link_to 'Show', candidate %></td>
       </tr>
     <% end %>

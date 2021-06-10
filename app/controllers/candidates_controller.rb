@@ -14,6 +14,7 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+    @interview = Interview.new
     @positions = Position.all.order(name: :desc).pluck(:name, :id)
     @positions.unshift(["Select position", ""])
   end
