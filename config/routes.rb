@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :positions
   resources :skills
-  resources :interviews, only: [:index, :show, :create]
+  resources :interviews, only: [:index, :show, :create, :update]
   resources :scores
 
   root 'positions#index'

@@ -16,6 +16,8 @@
   <% end %>
 </p>
 
+<%= link_to("Close interview", interview_path, method: :put) unless(@interview.closed)  %>
+
 <hr />
 
 <h4>Candidate</h4>
@@ -61,6 +63,10 @@
 
 <hr />
 
-<h4>Record applicant scores</h4>
+<% if(@interview.closed) %>
+    <h4>The interview have been closed</h4>
+  <% else %>
+    <h4>Rate candidate (set range between 1 - 10 points)</h4>
 
-<%= render 'form', score: @score %>
+    <%= render 'form', score: @score %>
+  <% end %>

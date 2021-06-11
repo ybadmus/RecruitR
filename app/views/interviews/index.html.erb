@@ -9,7 +9,7 @@
       <th>Interview date</th>
       <th>Candidate</th>
       <th>Recruiter</th>
-      <th>Closed</th>
+      <th>Status</th>
       <th>Score</th>
       <th colspan="3"></th>
     </tr>
@@ -19,10 +19,10 @@
     <% @interviews.each do |interview| %>
       <tr>
         <td><%= interview.interview_date %></td>
-        <td><%= "#{interview.candidate.lname} #{interview.candidate.lname}" %></td>
+        <td><%= "#{interview.candidate.fname} #{interview.candidate.lname}" %></td>
         <td><%= interview.recruiter.name %></td>
-        <td><%= interview.closed %></td>
-        <td><%= interview.score.nil? ? "N/a" : interview.score.experience  %></td>
+        <td><%= interview.closed ? "Closed" : "Opened" %></td>
+        <td><%= interview.score.nil? ? "N/a" : interview.score.experience %></td>
         <td><%= link_to 'Show', interview %></td>
       </tr>
     <% end %>
