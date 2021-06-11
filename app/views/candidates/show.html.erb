@@ -55,19 +55,7 @@
   <p>
     <strong>Suggested recruiters with the matching skills:</strong>
 
-    <%= form_with(model: @interview) do |form| %>
-      <%= form.hidden_field :candidate_id, value: "#{@candidate.id}" %>
-      
-      <%= form.collection_radio_buttons(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
-        <%= b.label { b.radio_button(checked: @defaults.include?(b.value)) + b.text } %>
-      <% end %>
-
-      <%= form.text_field :interview_date, class: "datetimepicker" %>
-
-      <div class="actions">
-        <%= form.submit 'Match the applicant' %>
-      </div>
-    <% end %>
+    <%= render 'interviews/form', score: @score %>
 
   </p>
 <% end %>
