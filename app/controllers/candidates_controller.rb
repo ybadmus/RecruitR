@@ -8,21 +8,18 @@ class CandidatesController < ApplicationController
 
   # GET /candidates/1 or /candidates/1.json
   def show
-    @defaults = []
     @interview = Interview.new
   end
 
   # GET /candidates/new
   def new
     @candidate = Candidate.new
-    @positions = Position.all.order(name: :desc).pluck(:name, :id)
-    @positions.unshift(["Select position", ""])
+    load_positions
   end
 
   # GET /candidates/1/edit
   def edit
-    @positions = Position.all.order(name: :desc).pluck(:name, :id)
-    @positions.unshift(["Select position", ""])
+    load_positions
   end
 
   # POST /candidates or /candidates.json
@@ -66,6 +63,11 @@ class CandidatesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_candidate
       @candidate = Candidate.find(params[:id])
+    end
+
+    def load_positions
+      @positions = Position.all.order(name: :desc).pluck(:name, :id)
+      @positions.unshift(["Select position", ""])
     end
 
     # Only allow a list of trusted parameters through.

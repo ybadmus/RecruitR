@@ -2,7 +2,7 @@
   <%= form.hidden_field :candidate_id, value: "#{@candidate.id}" %>
   
   <%= form.collection_radio_buttons(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
-    <%= b.label { b.radio_button(checked: @defaults.include?(b.value)) + b.text } %>
+    <%= b.label { b.radio_button() + b.text } %>
   <% end %>
 
   <%= form.text_field :interview_date, class: "datetimepicker" %>
