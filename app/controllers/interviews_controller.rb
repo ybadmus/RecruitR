@@ -23,24 +23,14 @@ class InterviewsController < ApplicationController
   def update
     if !params[:cancel]
       @score = Score.new(score_params)
-      if(@score.save) 
-        if Interview.update(@interview.id, closed: true, score_id: @score.id)
-          redirect_to interviews_path, notice: "Interview with applicant completed." 
-        else
-          flash[:alert] = @interview.errors.full_messages.first
-          render @interview, status: :unprocessable_entity
-        end   
+      if @score.save 
+        save_score_card
       else
         flash[:alert] = @score.errors.full_messages.first
         render @score, status: :unprocessable_entity
-      end  
+      end
     else 
-      if Interview.update(@interview.id, closed: true)
-        redirect_to interviews_path, alert: "Interview was successfully canceled." 
-      else
-        flash[:alert] = @interview.errors.full_messages.first
-        render @interview, status: :unprocessable_entity
-      end   
+      cancel_interview
     end
   end
 
@@ -60,5 +50,23 @@ class InterviewsController < ApplicationController
 
     def interview_params
       params.require(:interview).permit(:candidate_id, :recruiter_id, :interview_date)
+    end
+
+    def cancel_interview
+      if Interview.update(@interview.id, closed: true)
+        redirect_to interviews_path, alert: "Interview was successfully canceled." 
+      else
+        flash[:alert] = @interview.errors.full_messages.first
+        render @interview, status: :unprocessable_entity
+      end 
+    end
+
+    def save_score_card
+      if Interview.update(@interview.id, closed: true, score_id: @score.id)
+        redirect_to interviews_path, notice: "Score card for applicant successfully created." 
+      else
+        flash[:alert] = @interview.errors.full_messages.first
+        render @interview, status: :unprocessable_entity
+      end   
     end
 end
