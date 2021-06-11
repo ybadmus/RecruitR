@@ -8,44 +8,58 @@ class InterviewsController < ApplicationController
   def show
     @score = Score.new
   end
-
+  
   def create
-    @interview = Interview.new({candidate_id: params[:candidate_id],
-      recruiter_id: params[:recruiter_id], interview_date: params[:interview_date], score_id: nil})
+      @interview = Interview.new(interview_params)
 
-    respond_to do |format|
-      if @interview.save && Candidate.update(params[:candidate_id], matched: true)
-        format.html { redirect_to interviews_path, notice: "Interview was successfully created." }
-        format.json { render :show, status: :created, location: @interview }
+      if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
+        redirect_to interviews_path, notice: "Interview was successfully created." 
       else
-        format.html { redirect_to candidate_path params[:candidate_id] }
-        format.json { render json: @interview.errors, status: :unprocessable_entity }
+        flash[:alert] = @interview.errors.full_messages.first
+        render candidates_path params[:interview][:candidate_id], status: :unprocessable_entity
       end
-    end
   end
 
   def update
-    respond_to do |format|
-      if Interview.update(@interview.id, closed: true)
-        format.html { redirect_to interviews_path, notice: "Interview was successfully closed." }
-        format.json { render :show, status: :created, location: @interview }
+    if !params[:cancel]
+      @score = Score.new(score_params)
+      if(@score.save) 
+        if Interview.update(@interview.id, closed: true, score_id: @score.id)
+          redirect_to interviews_path, notice: "Interview with applicant completed." 
+        else
+          flash[:alert] = @interview.errors.full_messages.first
+          render @interview, status: :unprocessable_entity
+        end   
       else
-        format.html { render @interview, status: :unprocessable_entity }
-        format.json { render json: @interview.errors, status: :unprocessable_entity }
-      end                   
+        flash[:alert] = @score.errors.full_messages.first
+        render @score, status: :unprocessable_entity
+      end  
+    else 
+      if Interview.update(@interview.id, closed: true)
+        redirect_to interviews_path, alert: "Interview was successfully canceled." 
+      else
+        flash[:alert] = @interview.errors.full_messages.first
+        render @interview, status: :unprocessable_entity
+      end   
     end
   end
 
   def destroy
     @interview.destroy
-    respond_to do |format|
-      format.html { redirect_to interviews_url, notice: "Interview was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Interview was successfully destroyed." 
+    redirect_to interviews_url
   end
 
   private
     def set_interview
       @interview = Interview.find(params[:id])
+    end
+
+    def score_params
+      params.require(:score).permit(:experience, :dynamism, :interest, :enthusiasm, :technical_skill)
+    end
+
+    def interview_params
+      params.require(:interview).permit(:candidate_id, :recruiter_id, :interview_date)
     end
 end

@@ -16,7 +16,7 @@
   <% end %>
 </p>
 
-<%= link_to("Close interview", interview_path, method: :put) unless(@interview.closed)  %>
+<%= link_to("Cancel interview", interview_path(:cancel => true), method: :put, query: "ruby on rails") unless(@interview.closed)  %>
 
 <hr />
 
@@ -47,6 +47,13 @@
   <%= @interview.candidate.position.name %>
 </p>
 
+<% if(!@interview.score.nil?) %>
+  <p>
+    <strong>Score:</strong>
+    <%= "#{@interview.score.experience + @interview.score.dynamism + @interview.score.interest + @interview.score.enthusiasm + @interview.score.technical_skill}%"  %>
+  </p>
+<% end %>
+
 <hr />
 
 <h4>Recruiter</h4>
@@ -66,7 +73,7 @@
 <% if(@interview.closed) %>
     <h4>The interview have been closed</h4>
   <% else %>
-    <h4>Rate candidate (set range between 1 - 10 points)</h4>
+    <h4>Applicant scorecard (set range between 1 - 10 points)</h4>
 
     <%= render 'form', score: @score %>
   <% end %>

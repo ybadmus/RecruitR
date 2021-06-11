@@ -42154,3 +42154,314 @@ Processing by InterviewsController#show as HTML
 Completed 200 OK in 107ms (Views: 92.6ms | ActiveRecord: 6.7ms | Allocations: 11665)
 
 
+Started GET "/" for 127.0.0.1 at 2021-06-11 11:20:35 +0000
+  [1m[35m (17.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (3.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (4.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 6]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 6]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (3.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (3.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 339.9ms | Allocations: 29115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 730.9ms | Allocations: 41787)
+Completed 200 OK in 851ms (Views: 686.3ms | ActiveRecord: 59.3ms | Allocations: 48474)
+
+
+Started GET "/positions/1" for 127.0.0.1 at 2021-06-11 11:20:43 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (2.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (1.4ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 97.8ms | Allocations: 7397)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 146.9ms | Allocations: 14073)
+Completed 200 OK in 157ms (Views: 137.0ms | ActiveRecord: 12.3ms | Allocations: 15460)
+
+
+Started GET "/positions/5" for 127.0.0.1 at 2021-06-11 11:20:47 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPosition Load (0.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (1.5ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1915)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.0ms | Allocations: 8642)
+Completed 200 OK in 100ms (Views: 90.8ms | ActiveRecord: 4.2ms | Allocations: 9778)
+
+
+Started GET "/positions/3" for 127.0.0.1 at 2021-06-11 11:20:50 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPosition Load (0.9ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1953)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.2ms | Allocations: 8679)
+Completed 200 OK in 73ms (Views: 65.2ms | ActiveRecord: 3.1ms | Allocations: 9814)
+
+
+Started GET "/positions/4" for 127.0.0.1 at 2021-06-11 11:20:53 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPosition Load (0.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (1.9ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1914)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 71.9ms | Allocations: 8640)
+Completed 200 OK in 78ms (Views: 70.0ms | ActiveRecord: 3.9ms | Allocations: 9775)
+
+
+Started GET "/positions/2" for 127.0.0.1 at 2021-06-11 11:20:57 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPosition Load (0.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (2.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 21.4ms | Allocations: 2025)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.0ms | Allocations: 8767)
+Completed 200 OK in 90ms (Views: 82.8ms | ActiveRecord: 3.9ms | Allocations: 9880)
+
+
+Started GET "/positions/7" for 127.0.0.1 at 2021-06-11 11:21:00 +0000
+Processing by PositionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPosition Load (0.7ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/positions_controller.rb:77:in `set_position'
+  Rendering layout layouts/application.html.erb
+  Rendering positions/show.html.erb within layouts/application
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/show.html.erb:7:in `map'
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/show.html.erb:25
+  Rendered positions/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1937)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 87.8ms | Allocations: 8668)
+Completed 200 OK in 94ms (Views: 87.2ms | ActiveRecord: 2.7ms | Allocations: 9781)
+
+
+Started GET "/interviews" for 127.0.0.1 at 2021-06-11 11:21:09 +0000
+Processing by InterviewsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering interviews/index.html.erb within layouts/application
+  [1m[36mInterview Load (4.6ms)[0m  [1m[34mSELECT "interviews".* FROM "interviews" ORDER BY "interviews"."created_at" DESC[0m
+  ↳ app/views/interviews/index.html.erb:19
+  [1m[36mCandidate Load (1.1ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mRecruiter Load (5.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (1.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mRecruiter Load (1.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (1.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mRecruiter Load (1.8ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (5.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (3.3ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mRecruiter Load (1.1ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (1.5ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  [1m[36mCACHE Candidate Load (0.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:22
+  [1m[36mCACHE Recruiter Load (0.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/interviews/index.html.erb:23
+  Rendered interviews/index.html.erb within layouts/application (Duration: 189.9ms | Allocations: 29222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 269.5ms | Allocations: 35863)
+Completed 200 OK in 288ms (Views: 226.6ms | ActiveRecord: 53.6ms | Allocations: 38257)
+
+
+Started GET "/interviews/14" for 127.0.0.1 at 2021-06-11 11:21:15 +0000
+Processing by InterviewsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mInterview Load (1.1ms)[0m  [1m[34mSELECT "interviews".* FROM "interviews" WHERE "interviews"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/interviews_controller.rb:49:in `set_interview'
+  Rendering layout layouts/application.html.erb
+  Rendering interviews/show.html.erb within layouts/application
+  [1m[36mCandidate Load (1.0ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:27
+  [1m[36mPosition Load (1.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:47
+  [1m[36mRecruiter Load (1.3ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:56
+  Rendered interviews/_form.html.erb (Duration: 136.2ms | Allocations: 5281)
+  Rendered interviews/show.html.erb within layouts/application (Duration: 170.5ms | Allocations: 8605)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 238.3ms | Allocations: 15250)
+Completed 200 OK in 267ms (Views: 236.2ms | ActiveRecord: 10.8ms | Allocations: 20382)
+
+
+Started GET "/interviews/14" for 127.0.0.1 at 2021-06-11 11:21:57 +0000
+Processing by InterviewsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mInterview Load (0.9ms)[0m  [1m[34mSELECT "interviews".* FROM "interviews" WHERE "interviews"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/interviews_controller.rb:49:in `set_interview'
+  Rendering layout layouts/application.html.erb
+  Rendering interviews/show.html.erb within layouts/application
+  [1m[36mCandidate Load (1.4ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:27
+  [1m[36mPosition Load (1.0ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:47
+  [1m[36mRecruiter Load (1.2ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:56
+  Rendered interviews/_form.html.erb (Duration: 6.1ms | Allocations: 1664)
+  Rendered interviews/show.html.erb within layouts/application (Duration: 30.8ms | Allocations: 4792)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 102.8ms | Allocations: 11718)
+Completed 200 OK in 119ms (Views: 107.6ms | ActiveRecord: 4.6ms | Allocations: 13539)
+
+
+Started GET "/interviews/14" for 127.0.0.1 at 2021-06-11 11:22:55 +0000
+Processing by InterviewsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mInterview Load (2.2ms)[0m  [1m[34mSELECT "interviews".* FROM "interviews" WHERE "interviews"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/interviews_controller.rb:49:in `set_interview'
+  Rendering layout layouts/application.html.erb
+  Rendering interviews/show.html.erb within layouts/application
+  [1m[36mCandidate Load (2.8ms)[0m  [1m[34mSELECT "candidates".* FROM "candidates" WHERE "candidates"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:27
+  [1m[36mPosition Load (1.8ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:47
+  [1m[36mRecruiter Load (1.0ms)[0m  [1m[34mSELECT "recruiters".* FROM "recruiters" WHERE "recruiters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/interviews/show.html.erb:56
+  Rendered interviews/_form.html.erb (Duration: 7.6ms | Allocations: 1664)
+  Rendered interviews/show.html.erb within layouts/application (Duration: 39.7ms | Allocations: 4793)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 114.1ms | Allocations: 11712)
+Completed 200 OK in 130ms (Views: 115.6ms | ActiveRecord: 7.7ms | Allocations: 13531)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-11 11:23:13 +0000
+Processing by PositionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering positions/index.html.erb within layouts/application
+  [1m[36mPosition Load (2.1ms)[0m  [1m[34mSELECT "positions".* FROM "positions" ORDER BY "positions"."name" DESC[0m
+  ↳ app/views/positions/index.html.erb:17
+  [1m[36mSkill Load (4.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 6]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 6]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 4]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 3]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 5]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (2.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 1]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 7]]
+  ↳ app/views/positions/index.html.erb:21
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "position_skills" ON "skills"."id" = "position_skills"."skill_id" WHERE "position_skills"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/index.html.erb:20:in `map'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidates" WHERE "candidates"."position_id" = $1[0m  [["position_id", 2]]
+  ↳ app/views/positions/index.html.erb:21
+  Rendered positions/index.html.erb within layouts/application (Duration: 106.4ms | Allocations: 14902)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 183.9ms | Allocations: 21640)
+Completed 200 OK in 198ms (Views: 166.9ms | ActiveRecord: 25.5ms | Allocations: 22677)
+
+

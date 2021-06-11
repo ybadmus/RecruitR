@@ -9,12 +9,12 @@ class CandidatesController < ApplicationController
   # GET /candidates/1 or /candidates/1.json
   def show
     @defaults = []
+    @interview = Interview.new
   end
 
   # GET /candidates/new
   def new
     @candidate = Candidate.new
-    @interview = Interview.new
     @positions = Position.all.order(name: :desc).pluck(:name, :id)
     @positions.unshift(["Select position", ""])
   end

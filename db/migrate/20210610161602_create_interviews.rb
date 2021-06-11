@@ -5,7 +5,7 @@ class CreateInterviews < ActiveRecord::Migration[6.1]
       t.integer :recruiter_id
       t.string :interview_date
       t.boolean :closed, :default => false
-      t.integer :score_id
+      t.integer :score_id, :default => nil
 
       t.timestamps
     end
