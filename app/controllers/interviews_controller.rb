@@ -10,14 +10,14 @@ class InterviewsController < ApplicationController
   end
   
   def create
-      @interview = Interview.new(interview_params)
+    @interview = Interview.new(interview_params)
 
-      if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
-        redirect_to interviews_path, notice: "Interview was successfully created." 
-      else
-        flash[:alert] = @interview.errors.full_messages.first
-        render candidates_path params[:interview][:candidate_id], status: :unprocessable_entity
-      end
+    if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
+      redirect_to interviews_path, notice: "Interview was successfully created." 
+    else
+      flash[:alert] = @interview.errors.full_messages.first
+      render candidates_path params[:interview][:candidate_id], status: :unprocessable_entity
+    end
   end
 
   def update
@@ -46,8 +46,7 @@ class InterviewsController < ApplicationController
 
   def destroy
     @interview.destroy
-    flash[:notice] = "Interview was successfully destroyed." 
-    redirect_to interviews_url
+    redirect_to interviews_url, notice: "Interview was successfully destroyed." 
   end
 
   private

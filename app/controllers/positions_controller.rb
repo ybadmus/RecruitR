@@ -48,8 +48,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1 or /positions/1.json
   def destroy
     @position.destroy
-    flash[:notice] = "Position was successfully destroyed." 
-    redirect_to positions_url
+    redirect_to positions_url, notice: "Position was successfully destroyed." 
   end
 
   private

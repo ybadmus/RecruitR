@@ -47,8 +47,7 @@ class RecruitersController < ApplicationController
  # DELETE /recruiters/1 or /recruiters/1.json
   def destroy
     @recruiter.destroy
-    flash[:notice] = "Recruiter was successfully destroyed." 
-    redirect_to recruiters_url
+    redirect_to recruiters_url, notice: "Recruiter was successfully destroyed." 
   end
 
   private
