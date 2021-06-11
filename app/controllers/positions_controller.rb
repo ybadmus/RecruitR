@@ -14,67 +14,65 @@ class PositionsController < ApplicationController
   # GET /positions/new
   def new
     @position = Position.new
-    @defaults = []
+    set_defaults
   end
 
   # GET /positions/1/edit
   def edit
-    @defaults = PositionSkill.where(position_id: @position.id).pluck(:skill_id)
+    set_defaults
   end
 
   # POST /positions or /positions.json
   def create  
     @position = Position.new(position_params)
-    params[:position][:skill_id].each do |skill|
-      if !skill.empty?
-        @position.position_skills.build(:skill_id => skill)
-      end
-    end
+    build_skills
 
-    respond_to do |format|
-      if @position.save 
-        format.html { redirect_to positions_path, notice: "Position was successfully created." }
-        format.json { render :show, status: :created, location: @position }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
-      end
+    if @position.save 
+      redirect_to positions_path, notice: "Position was successfully created." 
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /positions/1 or /positions/1.json
   def update
-    params[:position][:skill_id].each do |skill|
-      if !skill.empty?
-        @position.position_skills.build(:skill_id => skill)
-      end
-    end
-    #perform check if there array has really changed before submitting
-    PositionSkill.where(position_id: @position.id).delete_all
-    respond_to do |format|
-      if @position.update(position_params)
-        format.html { redirect_to positions_path, notice: "Position was successfully updated." }
-        format.json { render :show, status: :ok, location: @position }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
-      end
+    build_skills
+
+    if update_position_skills
+      redirect_to positions_path, notice: "Position was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity 
     end
   end
 
   # DELETE /positions/1 or /positions/1.json
   def destroy
     @position.destroy
-    respond_to do |format|
-      format.html { redirect_to positions_url, notice: "Position was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Position was successfully destroyed." 
+    redirect_to positions_url
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_position
       @position = Position.find(params[:id])
+    end
+
+    def set_defaults
+      @defaults = !@position.id.nil? ? PositionSkill.where(position_id: @position.id).pluck(:skill_id) : []
+    end
+
+    def update_position_skills
+      PositionSkill.where(position_id: @position.id).delete_all
+      @position.update(position_params)
+    end
+
+    def build_skills
+      params[:position][:skill_id].each do |skill|
+        if !skill.empty?
+          @position.position_skills.build(:skill_id => skill)
+        end
+      end
     end
 
     # Only allow a list of trusted parameters through.

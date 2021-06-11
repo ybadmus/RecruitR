@@ -13,19 +13,18 @@ class RecruitersController < ApplicationController
   # GET /recruiters/new
   def new
     @recruiter = Recruiter.new
-    set_default
+    set_defaults
   end
 
   # GET /recruiters/1/edit
   def edit
-    set_default
+    set_defaults
   end
 
   # POST /recruiters or /recruiters.json
   def create
     @recruiter = Recruiter.new(recruiter_params)
-
-    build_positions @recruiter
+    build_positions
 
     if @recruiter.save
       redirect_to recruiters_path, notice: "Recruiter was successfully created." 
@@ -36,9 +35,9 @@ class RecruitersController < ApplicationController
 
   # PATCH/PUT /recruiters/1 or /recruiters/1.json
   def update
-    build_positions @recruiter
+    build_positions
 
-    if update_recruiter_position @recruiter
+    if update_recruiter_position
       redirect_to recruiters_path, notice: "Recruiter was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -58,20 +57,20 @@ class RecruitersController < ApplicationController
       @recruiter = Recruiter.find(params[:id])
     end
 
-    def build_positions recruiter
+    def build_positions
       params[:recruiter][:position_ids].each do |position|
         if !position.empty?
-          recruiter.recruiter_positions.build(:position_id => position)
+          @recruiter.recruiter_positions.build(:position_id => position)
         end
       end
     end
 
-    def update_recruiter_position recruiter
-      RecruiterPosition.where(recruiter_id: recruiter.id).delete_all
-      recruiter.update(recruiter_params)
+    def update_recruiter_position
+      RecruiterPosition.where(recruiter_id: @recruiter.id).delete_all
+      @recruiter.update(recruiter_params)
     end
 
-    def set_default
+    def set_defaults
       @defaults = !@recruiter.id.nil? ? RecruiterPosition.where(recruiter_id: @recruiter.id).pluck(:position_id) : []
     end
 
