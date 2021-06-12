@@ -46,20 +46,7 @@
 
 <hr />
 
-<% if(@candidate.matched) %>
-  <p>
-    <strong>This candidate has already been matched</strong>
-
-  </p>
-<% else %>
-  <p>
-    <strong>Suggested recruiters with the matching skills:</strong>
-
-    <%= render 'interviews/form', score: @score %>
-
-  </p>
-<% end %>
-
+<p><%= schedule_interview_card @candidate %></p>
 
 <%= javascript_include_tag 'jquery'%>
 <%= javascript_include_tag 'jquery.datetimepicker.full.min'%>
