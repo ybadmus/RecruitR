@@ -9,7 +9,6 @@ class PositionsController < ApplicationController
 
   # GET /positions/1 or /positions/1.json
   def show
-    @candidates = @position.candidates
   end
 
   # GET /positions/new

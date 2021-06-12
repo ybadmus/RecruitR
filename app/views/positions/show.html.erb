@@ -22,7 +22,7 @@
   </thead>
 
   <tbody>
-    <% @candidates.each do |candidate| %>
+    <%  @position.candidates.each do |candidate| %>
       <tr>
         <td><%= "#{candidate.fname} #{candidate.lname}" %></td>
         <td><%= candidate.email %></td>

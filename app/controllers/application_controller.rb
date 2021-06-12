@@ -6,16 +6,20 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !current_user.nil?
+    user = current_user
+    !user.nil? && (user.id.eql? session[:id])
   end
 
   def require_login
-    if logged_in? && (current_user.id.eql? session[:id])
+    if logged_in? 
       true
     else
       flash[:error] = "You must be logged in to access this section"
       redirect_to login_path
       false
     end
+  end
+
+  def logged_out?
   end
 end
