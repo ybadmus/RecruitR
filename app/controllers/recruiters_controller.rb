@@ -71,6 +71,7 @@ class RecruitersController < ApplicationController
 
     def set_defaults
       @defaults = !@recruiter.id.nil? ? RecruiterPosition.where(recruiter_id: @recruiter.id).pluck(:position_id) : []
+      @positions = Position.all()
     end
 
     # Only allow a list of trusted parameters through.

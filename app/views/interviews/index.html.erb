@@ -22,8 +22,8 @@
         <td><%= interview.interview_date %></td>
         <td><%= "#{interview.candidate.fname} #{interview.candidate.lname}" %></td>
         <td><%= interview.recruiter.name %></td>
-        <td><%= interview.closed ? "Closed" : "Opened" %></td>
-        <td><%= interview.score.nil? ? "N/a" : "#{interview.score.experience + interview.score.dynamism + interview.score.interest + interview.score.enthusiasm + interview.score.technical_skill}%" %></td>
+        <td><%= interview_closed? interview %></td>
+        <td><%= calculate_score interview %></td>
         <td><%= link_to 'Show', interview %></td>
       </tr>
     <% end %>

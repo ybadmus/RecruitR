@@ -4,7 +4,7 @@
 
 <p>
   <strong>Skills:</strong>
-  <%= (@position.skills.map {|skill| "#{skill.name}"}).join(', ') %>
+  <%= position_skills @position %>
 </p>
 
 <hr />
