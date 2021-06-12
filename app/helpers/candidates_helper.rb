@@ -8,7 +8,7 @@ module CandidatesHelper
       raw("<strong>This candidate has already been matched</strong>")
     else 
       raw("<strong>Suggested recruiters with the matching skills:</strong>
-      #{render 'interviews/form', score: @score}")
+      #{render 'interviews/form', interview: @interview}")
     end
   end
 end
