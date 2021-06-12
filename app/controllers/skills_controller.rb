@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: %i[ show edit update destroy ]
+  before_action :require_login
 
   # GET /skills or /skills.json
   def index

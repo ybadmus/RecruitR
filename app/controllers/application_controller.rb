@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    puts logged_in? && (current_user.id.eql? session[:id])
-    
     if logged_in? && (current_user.id.eql? session[:id])
       true
     else

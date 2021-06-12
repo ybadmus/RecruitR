@@ -1,5 +1,6 @@
 class RecruitersController < ApplicationController
   before_action :set_recruiter, only: %i[ show edit update destroy ]
+  before_action :require_login
 
   # GET /recruiters or /recruiters.json
   def index
