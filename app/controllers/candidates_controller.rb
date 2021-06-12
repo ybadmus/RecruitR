@@ -3,7 +3,7 @@ class CandidatesController < ApplicationController
 
   # GET /candidates or /candidates.json
   def index
-    @candidates = Candidate.all
+    @candidates = Candidate.includes(:position).all
   end
 
   # GET /candidates/1 or /candidates/1.json

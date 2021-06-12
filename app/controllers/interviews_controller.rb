@@ -2,7 +2,7 @@ class InterviewsController < ApplicationController
   before_action :set_interview, only: %i[ show update ]
 
   def index
-    @interviews = Interview.all.order(created_at: :desc)
+    @interviews = Interview.includes(:candidate, :recruiter, :score).all.order(created_at: :desc)
   end
 
   def show

@@ -3,7 +3,7 @@ class PositionsController < ApplicationController
 
   # GET /positions or /positions.json
   def index
-    @positions = Position.all.order(name: :desc)
+    @positions = Position.includes(:skills, :candidates).all.order(created_at: :desc)
   end
 
   # GET /positions/1 or /positions/1.json
