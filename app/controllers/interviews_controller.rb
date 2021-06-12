@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
   before_action :set_interview, only: %i[ show update ]
+  before_action :require_login
 
   def index
     @interviews = Interview.includes(:candidate, :recruiter, :score).all.order(created_at: :desc)
@@ -24,7 +25,7 @@ class InterviewsController < ApplicationController
     if !params[:cancel]
       @score = Score.new(score_params)
       if @score.save 
-        save_score_card
+        save_score
       else
         flash[:alert] = @score.errors.full_messages.first
         render @score, status: :unprocessable_entity
@@ -40,6 +41,7 @@ class InterviewsController < ApplicationController
   end
 
   private
+
     def set_interview
       @interview = Interview.find(params[:id])
     end
@@ -61,9 +63,9 @@ class InterviewsController < ApplicationController
       end 
     end
 
-    def save_score_card
+    def save_score
       if Interview.update(@interview.id, closed: true, score_id: @score.id)
-        redirect_to interviews_path, notice: "Score card for applicant successfully created." 
+        redirect_to interviews_path, notice: "Score for applicant successfully created." 
       else
         flash[:alert] = @interview.errors.full_messages.first
         render @interview, status: :unprocessable_entity

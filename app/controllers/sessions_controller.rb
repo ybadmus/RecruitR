@@ -3,18 +3,20 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(id: params[:id])
+    user = User.find_by(username: params[:username])
             .try(:authenticate, params[:password])
 
     if user
-      sessions[:user_id] = user.id 
+      session[:id] = user.id
+      redirect_to root_path
     else
       flash.now[:error] = "Invalid login credentials"
-      render user
+      render new_session_path
+    end
   end
 
   def destroy
     reset_session
-    render json: { status: 200, logged_out: true }
+    redirect_to login_path
   end
 end
