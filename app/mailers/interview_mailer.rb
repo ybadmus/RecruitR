@@ -2,6 +2,6 @@ class InterviewMailer < ApplicationMailer
   def new_interview_email
     @interview = params[:interview]
 
-    mail(to: 'msmonroe147@gmail.com', subject: "You got a new order!")
+    mail(to: "#{@interview.candidate.email},#{@interview.recruiter.email}", subject: "Invitation:  #{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name} @ #{@interview.interview_date}")
   end
 end

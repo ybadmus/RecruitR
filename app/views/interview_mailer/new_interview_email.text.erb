@@ -1,9 +1,17 @@
 
-You got a new order from <%=@interview.candidate_id %>
+You have been invited to the following event.
 ===============================================
 
-Order Details:
---------------------------
+Interview: <%= "#{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name}" %>
+-----------------------------------------------
 
-Name: <%=@interview.recruiter_id %>
-Email: <%= @interview.interview_date %>
+When: <%= @interview.interview_date %> (Y/m/d h:mm)
+
+Where: Zoom
+
+Event Name: Video call
+
+Position: <%= @interview.candidate.position.name %>.
+
+Powered by RecruitR
+----------

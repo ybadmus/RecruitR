@@ -5,17 +5,21 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new order from <%=@interview.candidate_id %>!</p>
-    <p>
-    Order details<br>
-    --------------------------
-    </p>
-    
-      Name: <%=@interview.recruiter_id %>
-      Email: <%= @interview.interview_date %>
+    <h3>You have been invited to the following event.</h3>
+    <hr />
+
+    <p><b>Interview</b>: <%= "#{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name}" %></p>
+
+    <p><b>When</b>: <%= @interview.interview_date %> <i>(YYYY/MM/DD HH:MM)</i></p>
+
+    <p><b>Where</b>: Zoom</p>
+
+    <p><b>Event Name</b>: Video call</p>
+
+    <p><b>Position: <strong><%= @interview.candidate.position.name %></strong>.</p>
 
     <p>
-    Message:<br>
+    Powered by <b>RecruitR</b><br>
     ----------
     </p>
   </body>
