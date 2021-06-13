@@ -14,6 +14,7 @@ class InterviewsController < ApplicationController
     @interview = Interview.new(interview_params)
 
     if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
+      InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
       redirect_to interviews_path, notice: "Interview was successfully created." 
     else
       flash[:alert] = @interview.errors.full_messages.first
