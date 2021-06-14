@@ -12,7 +12,7 @@ class InterviewsController < ApplicationController
   
   def create
     @interview = Interview.new(interview_params)
-
+    @interview.interview_date = "#{Date.parse(@interview.interview_date.split(' ')[0])} #{@interview.interview_date.split(' ')[1]}"
     if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
       new_event @interview

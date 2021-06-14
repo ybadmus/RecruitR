@@ -5,7 +5,7 @@ You have been invited to the following event.
 Interview: <%= "#{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name}" %>
 -----------------------------------------------
 
-When: <%= @interview.interview_date %> (Y/m/d h:mm)
+When: <%= "#{Date.parse(@interview.interview_date.split(' ')[0])}, #{@interview.interview_date.split(' ')[1]}" %>
 
 Where: Zoom
 

@@ -30,12 +30,10 @@ class ApplicationController < ActionController::Base
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = client
 
-    today = Date.today
-
     event = Google::Apis::CalendarV3::Event.new({
-      start: Google::Apis::CalendarV3::EventDateTime.new(date: today),
-      end: Google::Apis::CalendarV3::EventDateTime.new(date: today + 1),
-      summary: "Invitation:  #{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name} @ #{interview.interview_date}",
+      start: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date)),
+      end: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date) + 0.0417),
+      summary: "Invitation:  #{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name}",
       attendees: [
         Google::Apis::CalendarV3::EventAttendee.new(
           email: interview.candidate.email
@@ -60,7 +58,14 @@ class ApplicationController < ActionController::Base
       )
     })
 
-    service.insert_event('primary', event_object = event, send_notifications: true)
+    begin
+      service.insert_event('primary', event_object = event, send_notifications: true)
+    rescue Google::Apis::AuthorizationError
+      response = client.refresh!
+
+      session[:authorization] = session[:authorization].merge(response)
+      retry
+    end
 
     redirect_to positions_path, notice: "Invitation to interview was successfully created." 
   end
