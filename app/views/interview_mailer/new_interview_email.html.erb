@@ -10,7 +10,7 @@
 
     <p><b>Interview</b>: <%= "#{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name}" %></p>
 
-    <p><b>When</b>: <%= "#{Date.parse(@interview.interview_date.split(' ')[0])}, #{@interview.interview_date.split(' ')[1]}" %></p>
+    <p><b>When</b>: <%= "#{Date.parse(@interview.interview_date.split(' ')[0])}, #{@interview.interview_date.split(' ')[1]} #{Time.zone.name}" %></p>
 
     <p><b>Where</b>: Zoom</p>
 
