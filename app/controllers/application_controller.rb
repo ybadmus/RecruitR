@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     event = Google::Apis::CalendarV3::Event.new({
       start: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date)),
       end: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date) + 0.0417),
-      summary: "Invitation:  #{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name}",
+      summary: "#{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name}",
       attendees: [
         Google::Apis::CalendarV3::EventAttendee.new(
           email: interview.candidate.email
