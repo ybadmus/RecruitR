@@ -25,6 +25,7 @@ class PositionsController < ApplicationController
   # POST /positions or /positions.json
   def create  
     @position = Position.new(position_params)
+    set_defaults
     build_skills
 
     if @position.save 

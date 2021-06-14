@@ -12,13 +12,15 @@ class InterviewsController < ApplicationController
   
   def create
     @interview = Interview.new(interview_params)
-    @interview.interview_date = "#{Date.parse(@interview.interview_date.split(' ')[0])} #{@interview.interview_date.split(' ')[1]}"
+    @interview.interview_date = !@interview.interview_date.empty? ? "#{Date.parse(@interview.interview_date.split(' ')[0])} #{@interview.interview_date.split(' ')[1]}" : ''
+
     if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
+
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
       new_event @interview
     else
-      flash[:alert] = @interview.errors.full_messages.first
-      render candidates_path params[:interview][:candidate_id], status: :unprocessable_entity
+      @interview.interview_date.empty? ? flash[:alert] = 'Interview date can\'t be blank, please try again' : flash[:alert] = 'Recruiter can\'t be blank, please try again'
+      redirect_to candidates_path
     end
   end
 

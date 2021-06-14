@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
 
   # GET /candidates or /candidates.json
   def index
-    @candidates = Candidate.includes(:position).all
+    @candidates = Candidate.includes(:position).all.order(created_at: :desc)
   end
 
   # GET /candidates/1 or /candidates/1.json
@@ -26,6 +26,7 @@ class CandidatesController < ApplicationController
   # POST /candidates or /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
+    load_positions
 
     respond_to do |format|
       if @candidate.save

@@ -25,6 +25,7 @@ class RecruitersController < ApplicationController
   # POST /recruiters or /recruiters.json
   def create
     @recruiter = Recruiter.new(recruiter_params)
+    set_defaults
     build_positions
 
     if @recruiter.save

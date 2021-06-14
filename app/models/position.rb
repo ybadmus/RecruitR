@@ -1,4 +1,7 @@
 class Position < ApplicationRecord
+  validates :name, presence: true, length: { in: 3..100 }, uniqueness: true
+  validates :position_ids, presence: false
+
   has_many :position_skills
   has_many :skills, through: :position_skills
   

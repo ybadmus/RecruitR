@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
       retry
     end
 
-    redirect_to positions_path, notice: "Invitation to interview was successfully created." 
+    redirect_to positions_path, notice: "Interview invitation was successfully created." 
   end
 
   def client_options
