@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:id] = user.id
-      redirect_to root_path
+      redirect_to redirect_path
     else
       flash.now[:error] = "Invalid login credentials"
       render new_session_path

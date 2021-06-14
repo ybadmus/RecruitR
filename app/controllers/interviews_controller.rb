@@ -15,7 +15,7 @@ class InterviewsController < ApplicationController
 
     if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
-      redirect_to interviews_path, notice: "Interview was successfully created." 
+      new_event @interview
     else
       flash[:alert] = @interview.errors.full_messages.first
       render candidates_path params[:interview][:candidate_id], status: :unprocessable_entity
