@@ -23,7 +23,7 @@ To run this application locally, you will need to have:
 Once you have all the above listed:
 
 - Create a clone of this repository. 
-  - In your terminal type 'git clone https://github.com/ybadmus/welfare_app.git'
+  - In your terminal type 'git clone https://github.com/ybadmus/RecruitR.git'
   - From your terminal move into the cloned repository folder by using the 'cd' command 
 - run `yarn install` 
 - run `npm install`
@@ -63,7 +63,7 @@ You can deploy the project on [Heroku](https://www.heroku.com/) using the follow
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ybadmus/welfare_app/issues).
+Feel free to check the [issues page](https://github.com/ybadmus/RecruitR.git/issues).
 
 ## Show your support
 
