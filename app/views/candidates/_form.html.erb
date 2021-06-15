@@ -38,7 +38,7 @@
 
   <div class="field form-group col-sm-12 px-2">
     <%= form.label 'position', class: "control-label" %>
-    <%= form.select :position_id,  @positions, class: "form-select" %>
+    <%= form.select :position_id, @positions, :selected => params[:id].nil? ? request.referer.to_s.last(1) : candidate.position_id, class: "form-select" %>
   </div>
 
   <div class="actions mx-2 my-4">
