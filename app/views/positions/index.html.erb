@@ -1,27 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<h1>All Positions</h1>
+<h1 class="page-title">All Positions</h1>
 <hr />
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Skills</th>
-      <th>Applicants</th>
-      <th colspan="3"></th>
+      <th  scope="col">Name</th>
+      <th  scope="col">Skills</th>
+      <th  scope="col">Applicants</th>
+      <th  scope="col"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @positions.each do |position| %>
       <tr>
         <td><%= position.name %></td>
         <td><%= position_skills position %></td>
         <td><%=  "#{ applicants_no position } applicants" %></td>
-        <td><%= link_to 'Show', position %></td>
-        <td><%= link_to 'Edit', edit_position_path(position) %></td>
-        <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', position %> <%= link_to 'Edit', edit_position_path(position) %> <%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Position', new_position_path %>
+<%= link_to 'New Position', new_position_path, class: 'btn btn-primary' %>

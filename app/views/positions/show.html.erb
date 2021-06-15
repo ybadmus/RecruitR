@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @position.name %></h1>
 
 <p>
@@ -11,16 +9,15 @@
 
 <h4>Applicants</h4>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Matched</th>
+      <th  scope="col">Name</th>
+      <th  scope="col">Email</th>
+      <th  scope="col">Matched</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <%  @position.candidates.each do |candidate| %>
       <tr>

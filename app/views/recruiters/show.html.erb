@@ -9,23 +9,21 @@
 
 <hr />
 
-<p>
-  <table>
-    <thead>
-      <tr>
-        <th>Assigned positions</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @recruiter.positions.each do |position| %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Assigned positions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recruiter.positions.each do |position| %>
         <tr>
           <td><%= position.name %></td>
         </tr>
       <% end %>
     </tbody>
+  </tbody>
 </table>
-</p>
 
 <%= link_to 'Edit', edit_recruiter_path(@recruiter) %> |
 <%= link_to 'Destroy', @recruiter, method: :delete, data: { confirm: 'Are you sure?' } %>

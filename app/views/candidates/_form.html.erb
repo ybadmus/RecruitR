@@ -1,4 +1,4 @@
-<%= form_with(model: candidate) do |form| %>
+<%= form_with(model: candidate, html: {class: 'candidates-form'}) do |form| %>
   <% if candidate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label 'first name' %>
-    <%= form.text_field :fname %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'first name', class: "control-label" %>
+    <%= form.text_field :fname, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label 'last name' %>
-    <%= form.text_field :lname %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'last name', class: "control-label" %>
+    <%= form.text_field :lname, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :email, class: "control-label" %>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :angelist %>
-    <%= form.text_field :angelist %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :angelist, class: "control-label" %>
+    <%= form.text_field :angelist, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :linkedin %>
-    <%= form.text_field :linkedin %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :linkedin, class: "control-label" %>
+    <%= form.text_field :linkedin, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label 'position' %>
-    <%= form.select :position_id,  @positions %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'position', class: "control-label" %>
+    <%= form.select :position_id,  @positions, class: "form-select" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mx-2 my-4">
+    <%= form.submit class: "btn btn-success", style: "width:100%" %>
   </div>
 <% end %>

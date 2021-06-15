@@ -7,8 +7,8 @@ module CandidatesHelper
     if candidate.matched
       raw("<strong>This candidate has already been matched</strong>")
     else 
-      raw("<strong>Suggested recruiters with the matching skills:</strong>
-      #{render 'interviews/form', interview: @interview}")
+      
+      render 'interviews/form', interview: @interview
     end
   end
 end

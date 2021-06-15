@@ -1,21 +1,17 @@
-<p id="notice"><%= notice %></p>
-<p id="alert"><%= alert %></p>
-
 <h1>Interviews</h1>
 <hr />
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Interview date</th>
-      <th>Candidate</th>
-      <th>Recruiter</th>
-      <th>Status</th>
-      <th>Score</th>
+      <th  scope="col">Date</th>
+      <th  scope="col">Candidate</th>
+      <th  scope="col">Recruiter</th>
+      <th  scope="col">Status</th>
+      <th  scope="col">Score</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @interviews.each do |interview| %>
       <tr>
@@ -29,3 +25,4 @@
     <% end %>
   </tbody>
 </table>
+
