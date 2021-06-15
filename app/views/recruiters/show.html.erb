@@ -1,29 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @recruiter.name %></h1>
-
-<p>
-  <strong>Email:</strong>
-  <%= @recruiter.email %>
-</p>
-
+<div class="d-flex">
+  <h2>Recruiter</h2>
+  <span class="flex-grow"></span>
+  <%= link_to 'Edit', edit_recruiter_path(@recruiter), class: 'btn btn-secondary'  %>
+</div>
 <hr />
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Assigned positions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recruiter.positions.each do |position| %>
+<div class="row">
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <tbody>
         <tr>
-          <td><%= position.name %></td>
+          <td class="label-font">Name</td>
+          <td><%= @recruiter.name %></td>
         </tr>
-      <% end %>
-    </tbody>
-  </tbody>
-</table>
+        <tr>
+          <td class="label-font">Email</td>
+          <td><%= @recruiter.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Edit', edit_recruiter_path(@recruiter) %> |
-<%= link_to 'Destroy', @recruiter, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="col-12 col-md-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th  scope="col">Positions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recruiter.positions.each do |position| %>
+            <tr>
+              <td><%= position.name %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
