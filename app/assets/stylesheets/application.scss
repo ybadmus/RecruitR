@@ -19,14 +19,20 @@
     font-family: "Roboto Condensed", sans-serif;
     background-color: #fff;
   }
+
+  .main {
+    min-height: 87vh;
+  }
+
+  .footer {
+    background: black;
+    color: white;
+    padding: 15px;
+  }
+
  .side-nav-bar {
     padding-left: 30px;
     padding-top: 35px;
- }
-
- .footer {
-    position: absolute;
-    bottom: 0;
  }
 
  .field_with_errors {
@@ -71,3 +77,6 @@
   border: 1px solid silver;
   border-radius: 5px;
 }
+ .nav-link {
+   //color: white;
+ }
