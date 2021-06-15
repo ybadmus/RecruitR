@@ -1,4 +1,4 @@
-<%= form_with(model: score, method: :put, url: interview_path(@interview), html: {class: 'row score-card p-5'}) do |form| %>
+<%= form_with(model: score, method: :put, url: interview_path(@interview), html: {class: 'row p-2'}) do |form| %>
   <% if score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
