@@ -16,35 +16,45 @@
     <header>
       <%= navbar %>
     </header>
-
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
     
-    <main class="main">
-      <section class="container-fluid d-flex p-0">
-        <div class="col-12 col-md-2">
-          <ul class="nav flex-column side-nav-bar">
-            <li class="nav-item">
-              <%= link_to 'Home', positions_path, class: 'nav-link active'  %>
-            </li>
-            <li class="nav-item">
-            <%= link_to 'Interviews', interviews_path, class: 'nav-link'  %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Candidates', candidates_path, class: 'nav-link'  %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Recruiters', recruiters_path , class: 'nav-link'  %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Skills', skills_path , class: 'nav-link'  %>
-            </li>
-          </ul>
-        </div>
+    <main>
+      <section class="container-fluid d-flex main p-0">
+        <% if logged_in? %>
+          <div class="col-12 col-md-2 side-menu-container">
+            <ul class="nav flex-column side-nav-bar">
+              <li class="nav-item">
+                <%= link_to 'Home', positions_path, class: 'nav-link active'  %>
+              </li>
+              <li class="nav-item">
+              <%= link_to 'Interviews', interviews_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Candidates', candidates_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Recruiters', recruiters_path , class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Skills', skills_path , class: 'nav-link'  %>
+              </li>
+            </ul>
+          </div>
         
-        <div class="col-12 col-md-9 py-3 px-5">
-            <%= yield %>
-        </div>
+          <div class="col-12 col-md-9 py-3 px-5">
+              <p id="notice"><%= notice %></p>
+              <p id="alert"><%= alert %></p>
+                
+              <%= yield %>
+          </div>
+        
+        <% else %>
+
+
+          <div class="col-12 py-3 px-5">
+              <%= yield %>
+          </div>
+
+         <% end %>
       </section>
     </main>
 

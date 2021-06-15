@@ -1,21 +1,21 @@
 <h1>Login</h1>
 <hr />
 
-<%= form_with url: sessions_path, method: :post do |form| %>
+<%= form_with url: sessions_path, method: :post, html: {class: 'user-form pt-4'} do |form| %>
   
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, placeholder: "Enter your username", required: 'required' %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :username, class: "control-label" %>
+    <%= form.text_field :username, placeholder: "Enter your username", required: 'required', class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, placeholder: "Enter your password", required: 'required' %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :password, class: "control-label" %>
+    <%= form.password_field :password, placeholder: "Enter your password", required: 'required', class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mx-2 my-4">
+    <%= form.submit class: "btn btn-success submit-buttons mb-2" %>
+    <%= link_to 'Sign up', new_user_path, class: "btn btn-secondary submit-buttons" %>
   </div>
+
 <% end %>
-
-<%= link_to 'Sign up', new_user_path %>
