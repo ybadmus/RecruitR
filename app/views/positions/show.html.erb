@@ -18,9 +18,8 @@
   </div>
 </div>
 
-<br />
 
-<div class="apllicants-list">
+<div class="apllicants-list mt-2">
 
   <div class="d-flex mb-2">
     <h5>List of all applicants</h5>
@@ -39,7 +38,7 @@
         </tr>
       </thead>
       <tbody>
-        <%  @position.candidates.each do |candidate| %>
+        <%  @position.candidates.reverse.each do |candidate| %>
           <tr>
             <td><%= "#{candidate.fname} #{candidate.lname}" %></td>
             <td><%= candidate.email %></td>
