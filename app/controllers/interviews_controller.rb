@@ -59,7 +59,7 @@ class InterviewsController < ApplicationController
 
     def cancel_interview
       if Interview.update(@interview.id, closed: true)
-        redirect_to interviews_path, alert: "Interview was successfully canceled." 
+        redirect_to interviews_path, notice: "Interview was successfully canceled." 
       else
         flash[:alert] = @interview.errors.full_messages.first
         render @interview, status: :unprocessable_entity

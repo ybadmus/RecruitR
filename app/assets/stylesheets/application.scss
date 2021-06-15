@@ -21,7 +21,7 @@
   }
 
   .main {
-    min-height: 89vh;
+    min-height: 88.1vh;
   }
 
   .footer {
@@ -84,7 +84,7 @@
 }
 
 .side-menu-container {
-  background: #f8f9fa !important;
+  background: #ebf1f7 !important;
 }
 
 .nav-link {
@@ -102,4 +102,22 @@
 .table-hover thead {
   background: #242323;
   color: floralwhite;
+}
+
+.bg-light {
+  background-color: #dfe3e8 !important
+}
+
+.table-container {
+  overflow: auto;
+  max-height: 600px;
+  margin: 20px auto;
+}
+
+#alert {
+  color: red;
+}
+
+#notice {
+  color: green;
 }

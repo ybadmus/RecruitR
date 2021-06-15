@@ -1,34 +1,36 @@
 <h1>Candidates</h1>
 <hr />
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th  scope="col">Name</th>
-      <th  scope="col">Email</th>
-      <th  scope="col">Angelist</th>
-      <th  scope="col">Linkedin</th>
-      <th  scope="col">Matched</th>
-      <th  scope="col">Position</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @candidates.each do |candidate| %>
+<div class="table-container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= candidate.fname %> <%= candidate.lname %></td>
-        <td><%= candidate.email %></td>
-        <td><%= candidate.angelist %></td>
-        <td><%= candidate.linkedin %></td>
-        <td><%= candidate.matched %></td>
-        <td><%= candidate.position.name %></td>
-        <td><%= link_to 'Show', candidate %></td>
+        <th  scope="col">Name</th>
+        <th  scope="col">Email</th>
+        <th  scope="col">Angelist</th>
+        <th  scope="col">Linkedin</th>
+        <th  scope="col">Matched</th>
+        <th  scope="col">Position</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.fname %> <%= candidate.lname %></td>
+          <td><%= candidate.email %></td>
+          <td><%= candidate.angelist %></td>
+          <td><%= candidate.linkedin %></td>
+          <td><%= candidate.matched %></td>
+          <td><%= candidate.position.name %></td>
+          <td><%= link_to 'Show', candidate %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<br>
+<hr />
 
 <div>
   <%= link_to 'New Candidate', new_candidate_path, class: 'btn btn-primary' %>
