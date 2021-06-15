@@ -20,8 +20,8 @@ module InterviewsHelper
     if interview.closed
       raw("<h4>The interview have been closed</h4>")
     else 
-      raw("<h4>Applicant scorecard (set range between 1 - 10 points)</h4>
-      #{render 'score', score: @score}")
+     
+      render 'score', score: @score
     end
   end
 end

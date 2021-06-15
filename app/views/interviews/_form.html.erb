@@ -14,7 +14,7 @@
   
   <%= form.hidden_field :candidate_id, value: "#{@candidate.id}" %>
 
-  <div class="col-12 col-md-6">
+  <div class="col-12 col-md-12">
     <%= form.label 'Suggested recruiters with the matching skills (*)', class: "col-12 mb-2 label-font" %>
     <%= form.collection_radio_buttons(:recruiter_id, @candidate.position.recruiters, :id, :name,) do |b| %>
       <%= b.label { b.radio_button() + b.text } %>
@@ -24,7 +24,7 @@
     <%= form.text_field :interview_date, class: "datetimepicker" %>
   </div>
   
-  <div class="actions col-12 mt-5">
+  <div class="actions col-6 mt-5">
     <%= form.submit 'Match the applicant', class: 'btn btn-success submit-buttons'  %>
   </div>
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_with(model: score, method: :put, url: interview_path(@interview)) do |form| %>
+<%= form_with(model: score, method: :put, url: interview_path(@interview), html: {class: 'row score-card p-5'}) do |form| %>
   <% if score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :experience %>
-    <%= form.range_field :experience, in: 1..20, value: 0 %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :experience, class: "control-label" %>
+    <%= form.range_field :experience, in: 1..20, value: 0, class: "form-range" %>
   </div>
 
-  <div class="field">
-    <%= form.label :dynamism %>
-    <%= form.range_field :dynamism, in: 1..20, value: 0 %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :dynamism, class: "control-label" %>
+    <%= form.range_field :dynamism, in: 1..20, value: 0, class: "form-range" %>
   </div>
 
-  <div class="field">
-    <%= form.label :interest %>
-    <%= form.range_field :interest, in: 1..20, value: 0 %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :interest, class: "control-label" %>
+    <%= form.range_field :interest, in: 1..20, value: 0, class: "form-range" %>
   </div>
 
-  <div class="field">
-     <%= form.label :enthusiasm %>
-    <%= form.range_field :enthusiasm, in: 1..20, value: 0 %>
+  <div class="field form-group col-sm-12 px-2">
+     <%= form.label :enthusiasm, class: "control-label" %>
+    <%= form.range_field :enthusiasm, in: 1..20, value: 0, class: "form-range" %>
   </div>
 
-  <div class="field">
-    <%= form.label :technical_skill %>
-    <%= form.range_field :technical_skill, in: 1..20, value: 0 %>
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :technical_skill, class: "control-label" %>
+    <%= form.range_field :technical_skill, in: 1..20, value: 0, class: "form-range" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit 'Save' %>
+  <div class="actions mt-4">
+    <%= form.submit 'Save', class: "btn btn-success submit-buttons" %>
   </div>
 <% end %>
