@@ -23,3 +23,13 @@
 .flex-grow {
   flex-grow: 1;
 }
+
+.table-candidate-show {
+  overflow: auto;
+  max-height: 480px;
+  margin: 12px auto;
+}
+
+.btn-secondary {
+  height: 40px;
+}
