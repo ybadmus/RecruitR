@@ -13,29 +13,29 @@
  *= require_self
  */
 
- @import "../jquery.datetimepicker.scss";
+@import "../jquery.datetimepicker.scss";
 
-  body {
-    font-family: "Roboto Condensed", sans-serif;
-    background-color: #fff;
-  }
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #fff;
+}
 
-  .main {
-    min-height: 88.1vh;
-  }
+.main {
+  min-height: 88.1vh;
+}
 
-  .footer {
-    background: black;
-    color: white;
-    padding: 15px;
-  }
+.footer {
+  background: black;
+  color: white;
+  padding: 15px;
+}
 
- .side-nav-bar {
-    padding-left: 30px;
-    padding-top: 35px;
- }
+.side-nav-bar {
+  padding-left: 30px;
+  padding-top: 35px;
+}
 
- .field_with_errors {
+.field_with_errors {
   padding: 2px;
   background-color: red;
 }
@@ -71,7 +71,8 @@
   width: 100%;
 }
 
-.score-card, .user-form {
+.score-card,
+.user-form {
   width: 500px;
   margin: 0 auto;
   border: 1px solid silver;
@@ -105,7 +106,7 @@
 }
 
 .bg-light {
-  background-color: #dfe3e8 !important
+  background-color: #dfe3e8 !important;
 }
 
 .table-container {
