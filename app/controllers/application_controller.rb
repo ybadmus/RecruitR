@@ -75,8 +75,9 @@ class ApplicationController < ActionController::Base
       client_secret: 'LLzOh-U6MVrI69x4BtPYhM8V',
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-      scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-      redirect_uri: 'http://localhost:3000/callback'
+      scope: Google::Apis::CalendarV3::AUTH_CALENDAR, 
+      redirect_uri: 'https://secure-beyond-95793.herokuapp.com/callback'
+      #redirect_uri: 'http://localhost:3000/callback'
     }
   end
 end
