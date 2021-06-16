@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:edit, :update]
+  before_action :require_login, only: %i[edit update]
 
   def new
     reset_session
@@ -32,8 +32,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
-    
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end

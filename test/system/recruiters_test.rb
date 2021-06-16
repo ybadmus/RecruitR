@@ -1,47 +1,47 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class RecruitersTest < ApplicationSystemTestCase
   setup do
     @recruiter = recruiters(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit recruiters_url
-    assert_selector "h1", text: "Recruiters"
+    assert_selector 'h1', text: 'Recruiters'
   end
 
-  test "creating a Recruiter" do
+  test 'creating a Recruiter' do
     visit recruiters_url
-    click_on "New Recruiter"
+    click_on 'New Recruiter'
 
-    fill_in "Email", with: @recruiter.email
-    fill_in "Name", with: @recruiter.name
-    fill_in "Position", with: @recruiter.position
-    click_on "Create Recruiter"
+    fill_in 'Email', with: @recruiter.email
+    fill_in 'Name', with: @recruiter.name
+    fill_in 'Position', with: @recruiter.position
+    click_on 'Create Recruiter'
 
-    assert_text "Recruiter was successfully created"
-    click_on "Back"
+    assert_text 'Recruiter was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Recruiter" do
+  test 'updating a Recruiter' do
     visit recruiters_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Email", with: @recruiter.email
-    fill_in "Name", with: @recruiter.name
-    fill_in "Position", with: @recruiter.position
-    click_on "Update Recruiter"
+    fill_in 'Email', with: @recruiter.email
+    fill_in 'Name', with: @recruiter.name
+    fill_in 'Position', with: @recruiter.position
+    click_on 'Update Recruiter'
 
-    assert_text "Recruiter was successfully updated"
-    click_on "Back"
+    assert_text 'Recruiter was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Recruiter" do
+  test 'destroying a Recruiter' do
     visit recruiters_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Recruiter was successfully destroyed"
+    assert_text 'Recruiter was successfully destroyed'
   end
 end

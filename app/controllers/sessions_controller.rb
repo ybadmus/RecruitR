@@ -1,16 +1,15 @@
 class SessionsController < ApplicationController
-  def new
-  end
-  
+  def new; end
+
   def create
     user = User.find_by(username: params[:username])
-            .try(:authenticate, params[:password])
+      .try(:authenticate, params[:password])
 
     if user
       session[:id] = user.id
       redirect_to redirect_path
     else
-      flash.now[:error] = "Invalid login credentials"
+      flash.now[:error] = 'Invalid login credentials'
       render new_session_path
     end
   end

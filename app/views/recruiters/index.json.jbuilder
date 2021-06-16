@@ -1,1 +1,1 @@
-json.array! @recruiters, partial: "recruiters/recruiter", as: :recruiter
+json.array! @recruiters, partial: 'recruiters/recruiter', as: :recruiter

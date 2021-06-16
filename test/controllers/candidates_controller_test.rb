@@ -1,44 +1,48 @@
-require "test_helper"
+require 'test_helper'
 
 class CandidatesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @candidate = candidates(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get candidates_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_candidate_url
     assert_response :success
   end
 
-  test "should create candidate" do
+  test 'should create candidate' do
     assert_difference('Candidate.count') do
-      post candidates_url, params: { candidate: { angelist: @candidate.angelist, email: @candidate.email, fname: @candidate.fname, linkedin: @candidate.linkedin, lname: @candidate.lname, position_id: @candidate.position_id } }
+      post candidates_url,
+           params: { candidate: { angelist: @candidate.angelist, email: @candidate.email, fname: @candidate.fname,
+                                  linkedin: @candidate.linkedin, lname: @candidate.lname, position_id: @candidate.position_id } }
     end
 
     assert_redirected_to candidate_url(Candidate.last)
   end
 
-  test "should show candidate" do
+  test 'should show candidate' do
     get candidate_url(@candidate)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_candidate_url(@candidate)
     assert_response :success
   end
 
-  test "should update candidate" do
-    patch candidate_url(@candidate), params: { candidate: { angelist: @candidate.angelist, email: @candidate.email, fname: @candidate.fname, linkedin: @candidate.linkedin, lname: @candidate.lname, position_id: @candidate.position_id } }
+  test 'should update candidate' do
+    patch candidate_url(@candidate),
+          params: { candidate: { angelist: @candidate.angelist, email: @candidate.email, fname: @candidate.fname,
+                                 linkedin: @candidate.linkedin, lname: @candidate.lname, position_id: @candidate.position_id } }
     assert_redirected_to candidate_url(@candidate)
   end
 
-  test "should destroy candidate" do
+  test 'should destroy candidate' do
     assert_difference('Candidate.count', -1) do
       delete candidate_url(@candidate)
     end

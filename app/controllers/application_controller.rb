@@ -11,19 +11,18 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    if logged_in? 
+    if logged_in?
       true
     else
-      flash[:error] = "You must be logged in to access this section"
+      flash[:error] = 'You must be logged in to access this section'
       redirect_to login_path
       false
     end
   end
 
-  def logged_out?
-  end
+  def logged_out?; end
 
-  def new_event interview
+  def new_event(interview)
     client = Signet::OAuth2::Client.new(client_options)
     client.update!(session[:authorization])
 
@@ -31,32 +30,32 @@ class ApplicationController < ActionController::Base
     service.authorization = client
 
     event = Google::Apis::CalendarV3::Event.new({
-      start: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date)),
-      end: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date) + 0.0417),
-      summary: "#{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name}",
-      attendees: [
-        Google::Apis::CalendarV3::EventAttendee.new(
-          email: interview.candidate.email
-        ),
-        Google::Apis::CalendarV3::EventAttendee.new(
-          email: interview.recruiter.email
-        )
-      ],
+                                                  start: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date)),
+                                                  end: Google::Apis::CalendarV3::EventDateTime.new(date_time: DateTime.parse(interview.interview_date) + 0.0417),
+                                                  summary: "#{interview.candidate.fname} #{interview.candidate.lname} and #{interview.recruiter.name}",
+                                                  attendees: [
+                                                    Google::Apis::CalendarV3::EventAttendee.new(
+                                                      email: interview.candidate.email
+                                                    ),
+                                                    Google::Apis::CalendarV3::EventAttendee.new(
+                                                      email: interview.recruiter.email
+                                                    )
+                                                  ],
 
-      reminders: Google::Apis::CalendarV3::Event::Reminders.new(
-        use_default: false,
-        overrides: [
-          Google::Apis::CalendarV3::EventReminder.new(
-            reminder_method: 'email',
-            minutes: 24 * 60
-          ),
-          Google::Apis::CalendarV3::EventReminder.new(
-            reminder_method: 'popup',
-            minutes: 10
-          )
-        ]
-      )
-    })
+                                                  reminders: Google::Apis::CalendarV3::Event::Reminders.new(
+                                                    use_default: false,
+                                                    overrides: [
+                                                      Google::Apis::CalendarV3::EventReminder.new(
+                                                        reminder_method: 'email',
+                                                        minutes: 24 * 60
+                                                      ),
+                                                      Google::Apis::CalendarV3::EventReminder.new(
+                                                        reminder_method: 'popup',
+                                                        minutes: 10
+                                                      )
+                                                    ]
+                                                  )
+                                                })
 
     begin
       service.insert_event('primary', event_object = event, send_notifications: true)
@@ -67,7 +66,7 @@ class ApplicationController < ActionController::Base
       retry
     end
 
-    redirect_to positions_path, notice: "Interview invitation was successfully created." 
+    redirect_to positions_path, notice: 'Interview invitation was successfully created.'
   end
 
   def client_options

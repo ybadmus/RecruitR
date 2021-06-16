@@ -1,1 +1,1 @@
-json.array! @skills, partial: "skills/skill", as: :skill
+json.array! @skills, partial: 'skills/skill', as: :skill

@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :set_candidate, only: %i[ show edit update destroy ]
+  before_action :set_candidate, only: %i[show edit update destroy]
   before_action :require_login
 
   # GET /candidates or /candidates.json
@@ -30,7 +30,7 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to candidates_path, notice: "Candidate was successfully created." }
+        format.html { redirect_to candidates_path, notice: 'Candidate was successfully created.' }
         format.json { render :show, status: :created, location: @candidate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class CandidatesController < ApplicationController
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
-        format.html { redirect_to candidates_path, notice: "Candidate was successfully updated." }
+        format.html { redirect_to candidates_path, notice: 'Candidate was successfully updated.' }
         format.json { render :show, status: :ok, location: @candidate }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,24 +56,25 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     respond_to do |format|
-      format.html { redirect_to candidates_url, notice: "Candidate was successfully destroyed." }
+      format.html { redirect_to candidates_url, notice: 'Candidate was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_candidate
-      @candidate = Candidate.find(params[:id])
-    end
 
-    def load_positions
-      @positions = Position.all.order(name: :desc).pluck(:name, :id)
-      @positions.unshift(["Select position", ""])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_candidate
+    @candidate = Candidate.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def candidate_params
-      params.require(:candidate).permit(:fname, :lname, :email, :angelist, :linkedin, :position_id)
-    end
+  def load_positions
+    @positions = Position.all.order(name: :desc).pluck(:name, :id)
+    @positions.unshift(['Select position', ''])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def candidate_params
+    params.require(:candidate).permit(:fname, :lname, :email, :angelist, :linkedin, :position_id)
+  end
 end
