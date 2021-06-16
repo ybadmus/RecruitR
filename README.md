@@ -10,9 +10,9 @@ The goal of this app is to help the recruitment process for a company and to man
 
 ## Live Demo
 
-![screenshot](./Screenshot (1).png)
-![screenshot](Screenshot (2).png)
-![screenshot](./Screenshot (3).png)
+![screenshot](./Screenshot(1).png)
+![screenshot](Screenshot(2).png)
+![screenshot](./Screenshot(3).png)
 
 [Live demo link](https://secure-beyond-95793.herokuapp.com/login)
 
