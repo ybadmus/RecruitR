@@ -30,6 +30,15 @@ body {
   padding: 15px;
 }
 
+form {
+  border: 1px solid silver;
+  padding: 10px;
+}
+
+form, input {
+  margin-bottom: 5px;
+}
+
 .side-nav-bar {
   padding-left: 30px;
   padding-top: 35px;
