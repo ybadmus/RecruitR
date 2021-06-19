@@ -71,13 +71,15 @@ class ApplicationController < ActionController::Base
 
   def client_options
     {
-      client_id: '844306511255-v6pgo5b6ksm7a2oavvjdeq0efr5acpgr.apps.googleusercontent.com',
-      client_secret: 'LLzOh-U6MVrI69x4BtPYhM8V',
+      #client_id: '844306511255-v6pgo5b6ksm7a2oavvjdeq0efr5acpgr.apps.googleusercontent.com',
+      #client_secret: 'LLzOh-U6MVrI69x4BtPYhM8V',
+      client_id: '1026907825195-eqkadq4cbdrvemcbc73ocviesadebr7p.apps.googleusercontent.com',
+      client_secret: 'fJBNnoTT1T6FLtwLKUwE_eac',
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
       scope: Google::Apis::CalendarV3::AUTH_CALENDAR, 
-      redirect_uri: 'https://secure-beyond-95793.herokuapp.com/callback'
-      #redirect_uri: 'http://localhost:3000/callback'
+      #redirect_uri: 'https://secure-beyond-95793.herokuapp.com/callback'
+      redirect_uri: 'http://localhost:3000/callback'
     }
   end
 end
