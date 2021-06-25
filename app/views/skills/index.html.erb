@@ -1,0 +1,26 @@
+<h1>Skills</h1>
+<hr />
+
+<div class="table-container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @skills.each do |skill| %>
+        <tr>
+          <td><%= skill.name %></td>
+          <td><%= link_to 'Show', skill %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </tbody>
+  </table>
+</div>
+
+<hr />
+
+<%= link_to 'New Skill', new_skill_path, class: 'btn btn-primary' %>

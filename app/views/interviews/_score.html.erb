@@ -1,0 +1,42 @@
+<%= form_with(model: score, method: :put, url: interview_path(@interview), html: {class: 'row p-2'}) do |form| %>
+  <% if score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
+
+      <ul>
+        <% score.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :experience, class: "control-label" %>
+    <%= form.range_field :experience, in: 1..20, value: 0, class: "form-range" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :dynamism, class: "control-label" %>
+    <%= form.range_field :dynamism, in: 1..20, value: 0, class: "form-range" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :interest, class: "control-label" %>
+    <%= form.range_field :interest, in: 1..20, value: 0, class: "form-range" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+     <%= form.label :enthusiasm, class: "control-label" %>
+    <%= form.range_field :enthusiasm, in: 1..20, value: 0, class: "form-range" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :technical_skill, class: "control-label" %>
+    <%= form.range_field :technical_skill, in: 1..20, value: 0, class: "form-range" %>
+  </div>
+
+  <div class="actions mt-4">
+    <%= form.submit 'Save', class: "btn btn-success submit-buttons" %>
+  </div>
+<% end %>

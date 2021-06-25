@@ -1,0 +1,36 @@
+<%= form_with(model: recruiter, html: {class: 'recruiter-form'}) do |form| %>
+  <% if recruiter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recruiter.errors.count, "error") %> prohibited this recruiter from being saved:</h2>
+
+      <ul>
+        <% recruiter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :name, class: "control-label" %>
+    <%= form.text_field :name, class: "form-control"  %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :email, class: "control-label" %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'Positions', class: "form-check-label d-block" %>
+    <%= form.collection_check_boxes(:position_ids, @positions, :id, :name,) do |b| %>
+      <%= b.label class:"form-check-label" do%> 
+        <%= b.check_box(checked: @defaults.include?(b.value), class:"form-check-input") + " #{b.text}" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="actions mx-2 my-4">
+    <%= form.submit class: "btn btn-success submit-buttons"  %>
+  </div>
+<% end %>

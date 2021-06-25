@@ -1,0 +1,51 @@
+<div class="d-flex">
+  <h2>Matching <%= @candidate.fname %></h2>
+  <span class="flex-grow"></span>
+  <%= link_to 'Edit', edit_candidate_path(@candidate), class: 'btn btn-secondary'  %>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <p><b><%= @candidate.fname %></b> has been added to the <b><%= @candidate.position.name %></b> position!</p>
+
+    <p>Match <b><%= @candidate.fname %></b> with a recruiter for the skills <b><%= candidate_skills @candidate %></b></p>
+
+    <p><%= schedule_interview_card @candidate %></p>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <tbody>
+        <tr>
+          <td class="label-font">Name:</td>
+          <td><%= @candidate.fname %> <%= @candidate.lname %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Email:</td>
+          <td><%= @candidate.email %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Angelist:</td>
+          <td><%= @candidate.angelist %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Linkedin:</td>
+          <td><%= @candidate.linkedin %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Matched:</td>
+          <td><%= @candidate.matched %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Position:</td>
+          <td><%= @candidate.position.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= javascript_include_tag 'jquery'%>
+<%= javascript_include_tag 'jquery.datetimepicker.full.min'%>
+<%= javascript_include_tag 'datepicker'%>

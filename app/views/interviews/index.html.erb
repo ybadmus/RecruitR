@@ -1,0 +1,29 @@
+<h1>Interviews</h1>
+<hr />
+
+<div class="table-container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th  scope="col">Date</th>
+        <th  scope="col">Candidate</th>
+        <th  scope="col">Recruiter</th>
+        <th  scope="col">Status</th>
+        <th  scope="col">Score</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @interviews.each do |interview| %>
+        <tr>
+          <td><%= interview.interview_date %></td>
+          <td><%= "#{interview.candidate.fname} #{interview.candidate.lname}" %></td>
+          <td><%= interview.recruiter.name %></td>
+          <td><%= interview_closed? interview %></td>
+          <td><%= calculate_score interview %></td>
+          <td><%= link_to 'Show', interview %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

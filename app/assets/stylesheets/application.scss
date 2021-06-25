@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+
+@import "../jquery.datetimepicker.scss";
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #fff;
+}
+
+.main {
+  min-height: 88.1vh;
+}
+
+.footer {
+  background: black;
+  color: white;
+  padding: 15px;
+}
+
+.side-nav-bar {
+  padding-left: 30px;
+  padding-top: 35px;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.label-font {
+  font-weight: 600;
+}
+
+.submit-buttons {
+  width: 100%;
+}
+
+.score-card,
+.user-form {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+.user-form {
+  width: 400px;
+  margin: 30px auto;
+}
+
+.side-menu-container {
+  background: #ebf1f7 !important;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-item:hover {
+  background: white;
+}
+
+.table-hover thead {
+  background: #242323;
+  color: floralwhite;
+}
+
+.bg-light {
+  background-color: #dfe3e8 !important;
+}
+
+.table-container {
+  overflow: auto;
+  max-height: 600px;
+  margin: 20px auto;
+}
+
+#alert {
+  color: red;
+}
+
+#notice {
+  color: green;
+}
+
+label {
+  display: block;
+}
+
+.sign-up-button {
+  width: 400px;
+  margin: 0 auto;
+}

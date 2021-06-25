@@ -1,0 +1,91 @@
+<div class="d-flex">
+  <h2>Interview</h2>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <tbody>
+        <tr>
+          <td class="label-font">Date:</td>
+          <td><%= @interview.interview_date %> <%= Time.zone.name %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Status:</td>
+          <td><%= interview_closed? @interview %></td>
+        </tr>
+        <% unless(@interview.closed) %>
+          <tr>
+            <td class="label-font">Cancel</td>
+            <td><%= link_to("Cancel interview", interview_path(:cancel => true), method: :put, data: { confirm: 'Are you sure you want to cancel this interview?' }, class: 'btn btn-danger')%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <thead>
+        <tr>
+          <th  colspan="2">Candidate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-font">Name:</td>
+          <td><%= "#{@interview.candidate.fname} #{@interview.candidate.lname}" %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Email:</td>
+          <td><%= @interview.candidate.email %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Angelist:</td>
+          <td><%= @interview.candidate.angelist %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Linkedin:</td>
+          <td><%= @interview.candidate.linkedin %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Position:</td>
+          <td><%= @interview.candidate.position.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+
+  <div class="col-12 col-md-6 score-card p-4">
+    
+    <%= display_scorecard @interview %>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <thead>
+        <tr>
+          <th  colspan="2">Recruiter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-font">Name:</td>
+          <td><%= @interview.recruiter.name %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Email:</td>
+          <td><%= @interview.recruiter.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+

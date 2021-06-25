@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecruitR</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= navbar %>
+    </header>
+    
+    <main>
+      <section class="container-fluid d-flex main p-0">
+        <% if logged_in? %>
+          <div class="col-12 col-md-2 side-menu-container">
+            <ul class="nav flex-column side-nav-bar">
+              <li class="nav-item">
+                <%= link_to 'Home', positions_path, class: 'nav-link active'  %>
+              </li>
+              <li class="nav-item">
+              <%= link_to 'Interviews', interviews_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Candidates', candidates_path, class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Recruiters', recruiters_path , class: 'nav-link'  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Skills', skills_path , class: 'nav-link'  %>
+              </li>
+            </ul>
+          </div>
+        
+          <div class="col-12 col-md-9 py-3 px-5">
+              <p id="notice"><%= notice %></p>
+              <p id="alert"><%= alert %></p>
+                
+              <%= yield %>
+          </div>
+        
+        <% else %>
+
+
+          <div class="col-12 py-3 px-5">
+              <%= yield %>
+          </div>
+
+         <% end %>
+      </section>
+    </main>
+
+    <footer class="footer d-flex justify-content-end">
+      RecruitR - 2021
+    </footer>
+  </body>
+</html>

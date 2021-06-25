@@ -1,0 +1,47 @@
+<%= form_with(model: candidate, html: {class: 'candidates-form'}) do |form| %>
+  <% if candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+        <% candidate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'first name', class: "control-label" %>
+    <%= form.text_field :fname, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'last name', class: "control-label" %>
+    <%= form.text_field :lname, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :email, class: "control-label" %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :angelist, class: "control-label" %>
+    <%= form.text_field :angelist, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :linkedin, class: "control-label" %>
+    <%= form.text_field :linkedin, class: "form-control" %>
+  </div>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label 'position', class: "control-label" %>
+    <%= form.select :position_id, @positions, :selected => params[:id].nil? ? request.referer.to_s.last(1) : candidate.position_id, class: "form-select" %>
+  </div>
+
+  <div class="actions mx-2 my-4">
+    <%= form.submit class: "btn btn-success submit-buttons" %>
+  </div>
+<% end %>

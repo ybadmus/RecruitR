@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>You have been invited to the following event.</h3>
+    <hr />
+
+    <p><b>Interview</b>: <%= "#{@interview.candidate.fname} #{@interview.candidate.lname} and #{@interview.recruiter.name}" %></p>
+
+    <p><b>When</b>: <%= "#{Date.parse(@interview.interview_date.split(' ')[0])}, #{@interview.interview_date.split(' ')[1]} #{Time.zone.name}" %></p>
+
+    <p><b>Where</b>: Zoom</p>
+
+    <p><b>Event Name</b>: Video call</p>
+
+    <p>Position: <strong><%= @interview.candidate.position.name %></strong>.</p>
+
+    <p>
+    Powered by <b>RecruitR</b><br>
+    ----------
+    </p>
+  </body>
+</html>

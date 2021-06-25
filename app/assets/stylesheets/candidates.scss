@@ -1,0 +1,35 @@
+// Place all the styles related to the candidates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.recruiter-form {
+  width: 400px;
+  margin: 50px auto;
+}
+
+#candidate_position_id {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.table-candidate-show {
+  overflow: auto;
+  max-height: 480px;
+  margin: 12px auto;
+}
+
+.btn-secondary {
+  height: 40px;
+}

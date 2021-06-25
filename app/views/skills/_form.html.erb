@@ -1,0 +1,22 @@
+<%= form_with(model: skill, html: {class: 'skills-form'}) do |form| %>
+  <% if skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+      <ul>
+        <% skill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group col-sm-12 px-2">
+    <%= form.label :name, class: "control-label" %>
+    <%= form.text_field :name, class: "form-control"  %>
+  </div>
+
+  <div class="actions mx-2 my-4">
+    <%= form.submit class: "btn btn-success submit-buttons" %>
+  </div>
+<% end %>

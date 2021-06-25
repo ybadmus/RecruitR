@@ -1,0 +1,19 @@
+<div class="d-flex">
+  <h2>Skill</h2>
+  <span class="flex-grow"></span>
+  <%= link_to 'Edit', edit_skill_path(@skill), class: 'btn btn-secondary'  %>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <tbody>
+        <tr>
+          <td class="label-font">Name:</td>
+          <td><%= @skill.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

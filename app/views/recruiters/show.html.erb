@@ -1,0 +1,41 @@
+<div class="d-flex">
+  <h2>Recruiter</h2>
+  <span class="flex-grow"></span>
+  <%= link_to 'Edit', edit_recruiter_path(@recruiter), class: 'btn btn-secondary'  %>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <table class="table table-hover border border-silver">
+      <tbody>
+        <tr>
+          <td class="label-font">Name:</td>
+          <td><%= @recruiter.name %></td>
+        </tr>
+        <tr>
+          <td class="label-font">Email:</td>
+          <td><%= @recruiter.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-12 col-md-6 table-container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th  scope="col">Positions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recruiter.positions.each do |position| %>
+            <tr>
+              <td><%= position.name %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr />
+  </div>
+</div>
