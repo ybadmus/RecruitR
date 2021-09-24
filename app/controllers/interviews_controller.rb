@@ -17,7 +17,8 @@ class InterviewsController < ApplicationController
     if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
 
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
-      new_event @interview
+      GoogleCalendar:EventCreator.perform(@interview)
+      #new_event @interview
 
     else
       flash[:alert] = if @interview.interview_date.empty? && @interview.recruiter_id.nil?
