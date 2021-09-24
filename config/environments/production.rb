@@ -118,7 +118,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  host = '' #replace with herouko url
+  host = 'https://secure-beyond-95793.herokuapp.com/'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true 

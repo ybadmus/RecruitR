@@ -21,13 +21,22 @@ body {
 }
 
 .main {
-  min-height: 88.1vh;
+  min-height: 88.4vh;
 }
 
 .footer {
   background: black;
   color: white;
   padding: 15px;
+}
+
+form {
+  border: 1px solid silver;
+  padding: 10px;
+}
+
+form, input {
+  margin-bottom: 5px;
 }
 
 .side-nav-bar {
@@ -75,13 +84,13 @@ body {
 .user-form {
   width: 500px;
   margin: 0 auto;
-  border: 1px solid silver;
   border-radius: 5px;
 }
 
 .user-form {
   width: 400px;
   margin: 30px auto;
+  padding: 13px;
 }
 
 .side-menu-container {

@@ -10,20 +10,24 @@ The goal of this app is to help the recruitment process for a company and to man
 
 ## Live Demo
 
- [Live demo link]()
+![screenshot](./Screenshot(1).png)
+![screenshot](Screenshot(2).png)
+![screenshot](./Screenshot(3).png)
+
+[Live demo link](https://secure-beyond-95793.herokuapp.com/login)
 
 ## Getting Started
 
 To run this application locally, you will need to have:
 
-- Ruby version 2.7 and above
-- Rails installed
-- PostgresSQL
+- Ruby version 2.7 or above
+- Rails 6.1.3 or above
+- PostgreSQL
 
-Once you have all the above listed:
+Once you have all the above installed:
 
 - Create a clone of this repository. 
-  - In your terminal type 'git clone https://github.com/ybadmus/RecruitR.git'
+  - In your terminal type `git clone https://github.com/ybadmus/RecruitR.git`
   - From your terminal move into the cloned repository folder by using the 'cd' command 
 - run `yarn install` 
 - run `npm install`

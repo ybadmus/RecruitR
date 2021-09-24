@@ -59,11 +59,11 @@ class PositionsController < ApplicationController
   end
 
   def set_defaults
-    @defaults = @position.id.nil? ? [] : PositionSkill.where(position_id: @position.id).pluck(:skill_id)
+    @defaults = @position.id.nil? ? [] : @position.skills.pluck(:id)
   end
 
   def update_position_skills
-    PositionSkill.where(position_id: @position.id).delete_all
+    @position.skills.destroy_all
     @position.update(position_params)
   end
 
