@@ -14,12 +14,10 @@ class InterviewsController < ApplicationController
     @interview = Interview.new(interview_params)
     @interview.interview_date = @interview.interview_date.empty? ? '' : "#{Date.parse(@interview.interview_date.split[0])} #{@interview.interview_date.split[1]}"
 
-    if @interview.save && Candidate.update(params[:interview][:candidate_id], matched: true)
-
+    if @interview.save
+      Candidate.update(params[:interview][:candidate_id], matched: true)
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
-      GoogleCalendar:EventCreator.perform(@interview)
-      #new_event @interview
-
+      GoogleCalendar :EventCreator.perform(@interview)
     else
       flash[:alert] = if @interview.interview_date.empty? && @interview.recruiter_id.nil?
                         'Recruiter name and Interview date can\'t be blank, please try again'
