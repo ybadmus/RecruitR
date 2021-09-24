@@ -57,6 +57,9 @@ Lint/RaiseException:
   Enabled: false
 Lint/StructNewOverride:
   Enabled: false
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
 Style/HashEachMethods:
   Enabled: false
 Style/HashTransformKeys:

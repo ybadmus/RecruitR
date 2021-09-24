@@ -66,12 +66,12 @@ class RecruitersController < ApplicationController
 
   def update_recruiter_position
     @recruiter.positions.destroy_all
-    #RecruiterPosition.where(recruiter_id: @recruiter.id).delete_all
+    # RecruiterPosition.where(recruiter_id: @recruiter.id).delete_all
     @recruiter.update(recruiter_params)
   end
 
   def set_defaults
-    @defaults = @recruiter.id.nil? ? [] : @recruiter.positions.pluck(:id) #RecruiterPosition.where(recruiter_id: @recruiter.id).pluck(:position_id)
+    @defaults = @recruiter.id.nil? ? [] : @recruiter.positions.pluck(:id) # RecruiterPosition.where(recruiter_id: @recruiter.id).pluck(:position_id)
     @positions = Position.all
   end
 
