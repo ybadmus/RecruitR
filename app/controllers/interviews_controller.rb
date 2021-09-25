@@ -15,7 +15,7 @@ class InterviewsController < ApplicationController
     @interview.interview_date = @interview.interview_date.empty? ? '' : "#{Date.parse(@interview.interview_date.split[0])} #{@interview.interview_date.split[1]}"
 
     if @interview.save
-      Candidate.update(params[:interview][:candidate_id], matched: true)
+      Candidate.update(interview_params.candidate_id, matched: true)
       InterviewMailer.with(interview: @interview).new_interview_email.deliver_later
       GoogleCalendar :EventCreator.perform(@interview)
     else
