@@ -48,15 +48,16 @@ module GoogleCalendar
     end
 
     private
-        def client_options
-            {
-                client_id: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:client_id],
-                client_secret: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:client_secret],
-                authorization_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:authorization_uri],
-                token_credential_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:token_credential_uri],
-                scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-                redirect_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:redirect_uri]
-            }
-        end
+
+    def client_options
+      {
+        client_id: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:client_id],
+        client_secret: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:client_secret],
+        authorization_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:authorization_uri],
+        token_credential_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:token_credential_uri],
+        scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
+        redirect_uri: Rails.application.credentials[Rails.env.to_sym][:google_calendar][:redirect_uri]
+      }
+    end
   end
 end
