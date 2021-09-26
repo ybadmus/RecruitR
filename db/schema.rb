@@ -37,22 +37,8 @@ ActiveRecord::Schema.define(version: 2021_06_14_140632) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "position_skills", force: :cascade do |t|
-    t.integer "skill_id"
-    t.integer "position_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "positions", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "recruiter_positions", force: :cascade do |t|
-    t.integer "position_id"
-    t.integer "recruiter_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
