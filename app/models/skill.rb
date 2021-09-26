@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
-  validates :name, presence: true, length: { in: 3..100 }, uniqueness: true
+  validates :name, presence: true, length: { in: 3..50 }, uniqueness: true
 
-  has_many :position_skills
-  has_many :positions, through: :position_skills
+  belongs_to :skillable, polymorphic: true
+  has_many :positions
+  has_many :recruiters
 end
